@@ -1,0 +1,15 @@
+{
+  "name": "cdt-digital-id-strategy",
+  "version": "1.0.0",
+  "description": "Digital ID Strategy",
+  "scripts": {
+    "start": "watch-http-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
