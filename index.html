@@ -23,12 +23,14 @@ You may also use the CDN instead of using the local folder...
 <script src="https://california.azureedge.net/cdt/statetemplate/6.2.0/js/cagov.core.min.js"></script>
 
 -->
-    <link rel="stylesheet" href="ca_state_template/css/cagov.core.min.css" />
     <link
       rel="stylesheet"
-      href="ca_state_template/css/colortheme-oceanside.min.css" />
+      href="https://california.azureedge.net/cdt/statetemplate/6.2.0/css/cagov.core.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://california.azureedge.net/cdt/statetemplate/6.2.0/css/colortheme-oceanside.min.css" />
+    <script src="https://california.azureedge.net/cdt/statetemplate/6.2.0/js/cagov.core.min.js"></script>
     <link rel="stylesheet" href="css/custom.css" />
-    <script src="ca_state_template/js/cagov.core.min.js"></script>
     <!-- END STATE_TEMPLATE -->
 
     <link
@@ -162,7 +164,31 @@ You may also use the CDN instead of using the local folder...
           </button>
         </div>
       </div>
-      <div class="full-width-nav container">
+      <div class="navigation-search full-width-nav container">
+        <div id="head-search" class="search-container featured-search hidden">
+          <div class="container">
+            <form id="Search" class="pos-rel" action="serp.html">
+              <span class="sr-only" id="SearchInput">Custom Google Search</span>
+              <input
+                type="search"
+                name="q"
+                aria-labelledby="SearchInput"
+                placeholder="Search"
+                class="search-textfield" />
+              <button type="submit" class="gsc-search-button">
+                <span class="ca-gov-icon-search" aria-hidden="true"></span>
+                <span class="sr-only">Submit</span>
+              </button>
+              <div class="close-search-btn">
+                <button
+                  class="close-search gsc-clear-button border-0 bg-transparent pos-rel"
+                  type="reset">
+                  <span class="sr-only">Close</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
         <!-- navigation types -->
         <nav
           id="navigation"
@@ -178,14 +204,10 @@ You may also use the CDN instead of using the local folder...
               >
             </li>
             <li class="nav-item">
-              <a href="index.html" class="first-level-link"
-                >Roadmap</a
-              >
+              <a href="index.html" class="first-level-link">Roadmap</a>
             </li>
             <li class="nav-item">
-              <a href="index.html" class="first-level-link"
-                >Accomplishments</a
-              >
+              <a href="index.html" class="first-level-link">Accomplishments</a>
             </li>
           </ul>
         </nav>
@@ -194,38 +216,165 @@ You may also use the CDN instead of using the local folder...
     <div id="main-content" class="main-content">
       <main class="main-primary" id="main">
         <div class="hero-banner">
-          <div class="">
-            <div class="row">
-              <div class="col-md-6 col-lg-4 p-y-md">
-                <h1 class="h3 m-t text-light fw-light">
-                  Safe and scalable digital access for Californians
-                </h1>
-              </div>
-              <div class="col-lg-8 col-md-6 p-0">
-                <img src="/images/lightrail.png" />
-              </div>
-            </div>
+          <div class="container">
+            <h1 class="h2 text-light fw-lighter m-t-0">
+              Safe and scalable digital access for Californians
+            </h1>
+          </div>
+        </div>
+
+        <div class="bg-s1">
+          <div class="container">
+            <p>
+              A <strong>digital identity (ID)</strong> is the electronic
+              validation of an individual's identity similar to a physical ID
+              card.
+            </p>
+            <p>
+              A digital ID can be presented electronically to verify an
+              individual's identity in order to access information or services
+              online. The Digital ID Framework is a combination of systems and
+              electronic artifacts that securely and conveniently allows the
+              State to verify individuals’ identities to determine benefits
+              eligibility, access to government services, and to distribute
+              benefits to eligible individuals.
+            </p>
           </div>
         </div>
 
         <div class="container">
-          <h2>What's new in v6</h2>
-          <div class="row">
-            <div class="col-md-4"></div>
+          <h2>About the Digital ID Framework</h2>
+          <p>
+            CDT leads the development, implementation, administration, and
+            management of the California Digital ID Framework — a collection of
+            data, technology infrastructure, digital services, and gover­nance
+            that allows for digital identity and program eligibility
+            verification. As per the authority of the State CIO and State CTIO,
+            CDT is building both the technology supporting this framework as
+            well as policy, guidance, and governance to empower other State
+            departments to use it to enhance their own digital service
+            offerings.
+          </p>
+          <p>
+            The Framework is built around statewide technology and digital
+            strategies and founded on four key principles:
+          </p>
+          <ul>
+            <li>World-class security;</li>
+            <li>Privacy-by-Design;</li>
+            <li>Access, and Equity;</li>
+            <li>Openness, and Transparency.</li>
+          </ul>
+          <p>
+            Learn more about the Framework’s primary elements and how they help
+            people access state services.
+          </p>
+        </div>
+
+        <div class="bg-s1">
+          <div class="container">
+            <h2>Benefits</h2>
+            <p>
+              There are many benefits to digital identification. We’ve
+              highlighted the top five benefits we believe will help you the
+              most.
+            </p>
+            <ul>
+              <li>
+                A faster and more secure way for residents to receive necessary
+                services, benefits, and information.
+              </li>
+              <li>
+                The identity gateway creates trust between residents and their
+                government by ensuring that the information flows are secure and
+                that no one stores more personally identifiable information than
+                is strictly necessary.
+              </li>
+              <li>
+                The gateway leverages globally recognized standards with a
+                preference towards open-source software, making the solution
+                easy to scale.
+              </li>
+              <li>
+                The technical architecture of the gateway creates flexibility
+                for both the State and identity providers, allowing Digital ID
+                services to easily scale with the diversity of use cases state
+                and local agencies deal with.
+              </li>
+              <li>
+                The modular design of the gateway allows for the flexibility for
+                State departments to build benefits and services in the way that
+                best meets their mission objectives.
+              </li>
+            </ul>
           </div>
+        </div>
+
+        <div class="container">
+          <h2>How it works</h2>
+          <p>
+            CDT along with other state agencies are striving to help create a
+            better future for Californian’s and beyond. With a digital wallet
+            and IDs, Californians can gain access to services, without carrying
+            extra items on their person, like:
+          </p>
+          <ul>
+            <li>State-park passes</li>
+            <li>
+              State-issued professional licenses (i.e., cosmetology, fishing)
+            </li>
+            <li>Vaccine records</li>
+            <li>Transit passes with embedded discounts</li>
+            <li>Electric vehicle charger access</li>
+            <li>Mobile driver's license (mDL)</li>
+          </ul>
+          <p>
+            The diagram below demonstrates single-sign-on (aka SSO), privacy and
+            fraud controls in a centralized and interoperable system, built on
+            the California Identity Gateway, and accessible from several
+            distinct agencies. This is an opt-in service provided to residents.
+            As illustrated in the diagram, individuals are able to access
+            digital state services, benefits or records by going through our
+            identity gateway and using the applicable provider to share their
+            identifying and eligibility information. Once verified by the
+            respective state department, the individual is able to use their
+            service or benefit, such as by adding it to their digital wallet of
+            choice.
+          </p>
+          <img
+            src="images/digital-id-framework.png"
+            alt="CA Digital ID Framework" />
+          <h2>Your feedback matters</h2>
+          <p>We welcome your input. Provide feedback.</p>
         </div>
 
         <div class="bg-grey-lightest">
           <div class="container row">
             <div class="col-md-6">
-              <h2 class="h4 border-bottom">About</h2>
+              <h2
+                class="h4"
+                style="
+                  border-width: 0 0 1px 0;
+                  border-color: #046b99;
+                  border-style: solid;
+                ">
+                About
+              </h2>
               <ul class="list-unstyled">
                 <li>Digital ID Project</li>
                 <li>Contact us</li>
               </ul>
             </div>
             <div class="col-md-6">
-              <h2 class="h4 border-bottom">State Strategic plans</h2>
+              <h2
+                class="h4"
+                style="
+                  border-width: 0 0 1px 0;
+                  border-color: #046b99;
+                  border-style: solid;
+                ">
+                State Strategic plans
+              </h2>
               <ul class="list-unstyled">
                 <li>Digital Strategy</li>
                 <li>Bridge to the Future</li>

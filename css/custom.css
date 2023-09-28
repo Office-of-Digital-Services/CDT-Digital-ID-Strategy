@@ -4,5 +4,17 @@
 }
 
 .hero-banner {
-  background: linear-gradient(180deg, #01395E 20.31%, #046B99 66.15%);
+  background-image: url("/images/lightrail.png"), linear-gradient(180deg, #01395E 20.31%, #046B99 66.15%);
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 329px;
+  position: relative;
+}
+
+.hero-banner h1 {
+  width:547px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
