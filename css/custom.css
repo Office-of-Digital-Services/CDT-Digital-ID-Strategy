@@ -1,10 +1,19 @@
-.header-organization-banner .ca-gov-icon-project {
+.container .flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.focus-area-header {
+  background: linear-gradient(13deg, #eef8fb 0%, #6db7d8 100%);
+}
+
+.header-organization-banner .ca-gov-icon-fingerprint-check {
   font-size: 67px;
-  color:#FFAF00;
+  color: #ff7618;
 }
 
 .hero-banner {
-  background-image: linear-gradient(180deg, #01395E 20.31%, #046B99 66.15%);
+  background-image: linear-gradient(180deg, #01395e 20.31%, #046b99 66.15%);
 }
 
 .hero-banner .container {
@@ -13,9 +22,18 @@
   align-items: center;
 }
 
+.primary-card {
+  background: var(--v-6-gray-50, #fafafa);
+  border: 1px solid var(--v-6-gray-100, #ededef);
+  border-radius: 0.3125rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+}
+
 @media (min-width: 992px) {
   .hero-banner {
-    background-image: url("/images/lightrail.png"), linear-gradient(180deg, #01395E 20.31%, #046B99 66.15%);
+    background-image: url("/images/lightrail.png"),
+      linear-gradient(180deg, #01395e 20.31%, #046b99 66.15%);
     background-position: 100% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -26,7 +44,7 @@
 }
 
 .hero-banner h1 {
-  width:547px;
+  width: 547px;
 }
 
 .bottom-section h2 {
