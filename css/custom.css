@@ -32,7 +32,7 @@
 
 @media (min-width: 992px) {
   .hero-banner {
-    background-image: url("/images/lightrail.png"),
+    background-image: url("../images/lightrail.png"),
       linear-gradient(180deg, #01395e 20.31%, #046b99 66.15%);
     background-position: 100% 50%;
     background-repeat: no-repeat;
