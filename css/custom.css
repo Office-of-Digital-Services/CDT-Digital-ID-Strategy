@@ -1,6 +1,23 @@
+.branding .header-organization-banner img {
+  max-height: 66px;
+}
+
+.cta-button {
+  background: #ffaf00;
+  border-radius: 0.25rem;
+  color: #01395e;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+}
+
 .container .flex {
   display: flex;
   gap: 1rem;
+}
+
+.completed::before {
+  height: 30px;
+  width: 30px;
 }
 
 .focus-area-header {
@@ -25,6 +42,7 @@
 .primary-card {
   background: var(--v-6-gray-50, #fafafa);
   border: 1px solid var(--v-6-gray-100, #ededef);
+  border-bottom: 4px solid #d5d5d5;
   border-radius: 0.3125rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
