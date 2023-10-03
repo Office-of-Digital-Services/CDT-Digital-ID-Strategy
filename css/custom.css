@@ -48,7 +48,7 @@
   padding: 1.5rem;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1074px) {
   .hero-banner {
     background-image: url("../images/lightrail.png"),
       linear-gradient(180deg, #01395e 20.31%, #046b99 66.15%);
@@ -59,10 +59,10 @@
   .hero-banner .container {
     min-height: 329px;
   }
-}
 
-.hero-banner h1 {
-  width: 547px;
+  .hero-banner h1 {
+    width: 547px;
+  }
 }
 
 .bottom-section h2 {
