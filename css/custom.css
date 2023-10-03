@@ -2,14 +2,6 @@
   max-height: 66px;
 }
 
-.cta-button {
-  background: #ffaf00;
-  border-radius: 0.25rem;
-  color: #01395e;
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-}
-
 .container .flex {
   display: flex;
   gap: 1rem;
@@ -44,6 +36,7 @@
   border: 1px solid var(--v-6-gray-100, #ededef);
   border-bottom: 4px solid #d5d5d5;
   border-radius: 0.3125rem;
+  flex-basis: 49%;
   margin-bottom: 2rem;
   padding: 1.5rem;
 }
@@ -74,4 +67,22 @@
 
 .bottom-section li {
   margin-bottom: 1em;
+}
+
+@media (max-width: 991px) {
+  .primary-card {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container .flex {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 425px) {
+  h1 {
+    font-size: 2.1rem;
+  }
 }
