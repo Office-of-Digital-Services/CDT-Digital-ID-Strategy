@@ -84,6 +84,23 @@
     })(window, document, "script", "dataLayer", stateGTMAccount);
   </script>
   <!-- END Google Tag Manager -->
+
+  <script type="text/javascript">
+    let lang = window.navigator.languages ? window.navigator.languages[0] : null;
+    lang = lang || window.navigator.language || window.navigator.browserLanguage
+      || window.navigator.userLanguage;
+
+    let shortLang = lang;
+    if (shortLang.indexOf('-') !== -1)
+      shortLang = shortLang.split('-')[0];
+
+    if (shortLang.indexOf('_') !== -1)
+      shortLang = shortLang.split('_')[0];
+
+    if (shortLang === 'es')
+      window.location.replace('./' + shortLang + '/projects-es.html');
+  </script>
+
 </head>
 
 <body class="primary">
@@ -106,7 +123,9 @@
               State of California
             </p>
           </div>
-          <div class="settings-links"></div>
+          <div class="translation-link">
+            <a href="/es/projects-es.html">Español</a>
+          </div>
         </div>
       </div>
     </div>
@@ -260,9 +279,14 @@
               State Strategic plans
             </h2>
             <ul class="list-unstyled">
-              <li><a class="no-underline color-black" href="https://digitalstrategy.cdt.ca.gov/index.html">Digital Strategy</a></li>
-              <li><a class="no-underline color-black" href="https://cdt.ca.gov/wp-content/uploads/2023/08/Bridge-to-the-Future.pdf">Bridge to the Future</a></li>
-              <li><a class="no-underline color-black" href="https://cdt.ca.gov/wp-content/uploads/2021/10/Cybersecurity_Strategy_Plan_FINAL.pdf">Information Security Roadmap — Cal-Secure</a></li>
+              <li><a class="no-underline color-black" href="https://digitalstrategy.cdt.ca.gov/index.html">Digital
+                  Strategy</a></li>
+              <li><a class="no-underline color-black"
+                  href="https://cdt.ca.gov/wp-content/uploads/2023/08/Bridge-to-the-Future.pdf">Bridge to the Future</a>
+              </li>
+              <li><a class="no-underline color-black"
+                  href="https://cdt.ca.gov/wp-content/uploads/2021/10/Cybersecurity_Strategy_Plan_FINAL.pdf">Information
+                  Security Roadmap — Cal-Secure</a></li>
             </ul>
           </div>
         </div>

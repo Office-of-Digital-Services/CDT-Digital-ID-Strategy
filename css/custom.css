@@ -75,6 +75,14 @@ ul {
   top: 0rem;
 }
 
+.translation-link {
+  margin-left: auto;
+}
+.translation-link > a {
+  color: #3b3a48;
+  font-size: 0.875rem;
+}
+
 @media (min-width: 1074px) {
   .hero-banner {
     background-image: url("../images/lightrail.png"),
@@ -121,7 +129,9 @@ ul {
   }
 }
 
-.brd-gray-light, .brd-gray-light-hover:hover, .brd-gray-light-hover:focus {
+.brd-gray-light,
+.brd-gray-light-hover:hover,
+.brd-gray-light-hover:focus {
   border-color: #ededef !important;
 }
 
