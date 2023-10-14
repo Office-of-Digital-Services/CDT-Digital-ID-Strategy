@@ -10,10 +10,8 @@ ul {
   border-color: #87b8ce !important;
 }
 
-@media (min-width: 768px) {
-  .brd-md-left {
-    border-left: solid 6px;
-  }
+.brd-md-left {
+  border-left: solid 6px;
 }
 
 .container .flex {
