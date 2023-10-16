@@ -88,6 +88,7 @@
   <!-- END Google Tag Manager -->
 
   <script type="text/javascript">
+    let languageFlag = sessionStorage.getItem('isBrowserSpanish');
     let lang = window.navigator.languages ? window.navigator.languages[0] : null;
     lang = lang || window.navigator.language || window.navigator.browserLanguage
       || window.navigator.userLanguage;
@@ -99,8 +100,10 @@
     if (shortLang.indexOf('_') !== -1)
       shortLang = shortLang.split('_')[0];
 
-    if (shortLang === 'es')
+    if (shortLang === 'es' && !languageFlag) {
       window.location.replace('./' + shortLang + '/primary-elements-es.html');
+      sessionStorage.setItem('isBrowserSpanish', 'true')
+    }
   </script>
 
 </head>
