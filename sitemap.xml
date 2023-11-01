@@ -42,6 +42,10 @@
 
 <url>
   <loc>https://digitalidstrategy.cdt.ca.gov/sitemap.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="es"
+    href="https://digitalidstrategy.cdt.ca.gov/es/sitemap-es.html"/>
 </url>
 
 </urlset>
