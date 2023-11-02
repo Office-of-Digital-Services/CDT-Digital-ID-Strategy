@@ -17,6 +17,14 @@
 </url>
 
 <url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/CDT-Digital-ID-Framework-Strategy.pdf</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="es"
+    href="https://digitalidstrategy.cdt.ca.gov/CDT-Marco-de-Identidad-Digital.pdf"/>
+</url>
+
+<url>
   <loc>https://digitalidstrategy.cdt.ca.gov/primary-elements.html</loc>
   <xhtml:link
     rel="alternate"
