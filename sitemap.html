@@ -11,7 +11,7 @@
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="alternate" hreflang="es" href="https://digitalidstrategy.cdt.ca.gov/es/roadmap-es.html">
+  <link rel="alternate" hreflang="es" href="https://digitalidstrategy.cdt.ca.gov/es/sitemap-es.html">
 
   <!-- Title Tags -->
   <meta name="title" content="California State Digital ID Strategy" />
@@ -27,9 +27,9 @@
     content="The State of California’s digital strategy sets the stage by providing a comprehensive framework for all levels of California Government and education systems to innovate using technology to improve experiences and services for their residents. It serves as a blueprint that will shape the digital future of the State, leveraging innovative technology and humancentric design to make public services more accessible, efficient, and responsive to the needs of Californians." />
 
   <!-- Canonical link, improves SEO -->
-  <link href="https://digitalidstrategy.cdt.ca.gov/roadmap.html" rel="canonical">
-  <meta property="og:url" content="https://digitalidstrategy.cdt.ca.gov/roadmap.html" />
-  <meta property="twitter:url" content="https://digitalidstrategy.cdt.ca.gov/roadmap.html" />
+  <link href="https://digitalidstrategy.cdt.ca.gov/sitemap.html" rel="canonical">
+  <meta property="og:url" content="https://digitalidstrategy.cdt.ca.gov/sitemap.html" />
+  <meta property="twitter:url" content="https://digitalidstrategy.cdt.ca.gov/sitemap.html" />
   <!-- END Canonical link -->
 
   <!-- Open Graph / Facebook -->
@@ -40,9 +40,12 @@
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:image" content="https://digitalidstrategy.cdt.ca.govimages/lightrail-share.png" />
 
+  <!-- State Template CDN CSS -->
+  <link rel="stylesheet" href="https://cdn.cdt.ca.gov/cdt/statetemplate/6.3.0/css/cagov.core.min.css"
+    integrity="sha256-dhlQXqYtHrg7UE7IEYYcdTf2GFAr3gm/pmhgDoThjMk=" crossorigin="anonymous" />
   <!-- State Template JavaScript CDN -->
-  <link rel="stylesheet" href="https://california.azureedge.net/cdt/statetemplate/6.3.0/css/cagov.core.min.css" />
-  <script src="https://california.azureedge.net/cdt/statetemplate/6.3.0/js/cagov.core.min.js"></script>
+  <script src="https://cdn.cdt.ca.gov/cdt/statetemplate/6.3.0/js/cagov.core.min.js"
+    integrity="sha256-Ly4XaH2v22Z05t7R0/hMrs42s+hscO5tHTbAa5oDC78=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/custom.css" />
   <!-- END STATE_TEMPLATE -->
 
@@ -103,7 +106,7 @@
       shortLang = shortLang.split('_')[0];
 
     if (shortLang === 'es' && !languageFlag) {
-      window.location.replace('./' + shortLang + '/roadmap-es.html');
+      window.location.replace('./' + shortLang + '/sitemap-es.html');
       sessionStorage.setItem('isBrowserSpanish', 'true')
     }
   </script>
@@ -131,7 +134,7 @@
             </p>
           </div>
           <div class="translation-link">
-            <a href="es/roadmap-es.html">Español</a>
+            <a href="es/sitemap-es.html" hreflang="es" rel="alternate" lang="es">Español</a>
           </div>
         </div>
       </div>
