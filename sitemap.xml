@@ -1,0 +1,51 @@
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="es"
+    href="https://digitalidstrategy.cdt.ca.gov/es/index-es.html"/>
+</url>
+
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/accomplishments.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="es"
+    href="https://digitalidstrategy.cdt.ca.gov/es/accomplishments-es.html"/>
+</url>
+
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/primary-elements.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="es"
+    href="https://digitalidstrategy.cdt.ca.gov/es/primary-elements-es.html"/>
+</url>
+
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/projects.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="es"
+    href="https://digitalidstrategy.cdt.ca.gov/es/projects-es.html"/>
+</url>
+
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/roadmap.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="es"
+    href="https://digitalidstrategy.cdt.ca.gov/es/roadmap-es.html"/>
+</url>
+
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/sitemap.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="es"
+    href="https://digitalidstrategy.cdt.ca.gov/es/sitemap-es.html"/>
+</url>
+
+</urlset>
