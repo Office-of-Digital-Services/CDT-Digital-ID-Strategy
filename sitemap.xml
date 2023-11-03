@@ -7,6 +7,13 @@
     hreflang="es"
     href="https://digitalidstrategy.cdt.ca.gov/es/index-es.html"/>
 </url>
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/es/index-es.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://digitalidstrategy.cdt.ca.gov/"/>
+</url>
 
 <url>
   <loc>https://digitalidstrategy.cdt.ca.gov/accomplishments.html</loc>
@@ -14,6 +21,13 @@
     rel="alternate"
     hreflang="es"
     href="https://digitalidstrategy.cdt.ca.gov/es/accomplishments-es.html"/>
+</url>
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/es/accomplishments-es.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://digitalidstrategy.cdt.ca.gov/accomplishments.html"/>
 </url>
 
 <url>
@@ -23,6 +37,13 @@
     hreflang="es"
     href="https://digitalidstrategy.cdt.ca.gov/CDT-Marco-de-Identidad-Digital.pdf"/>
 </url>
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/CDT-Marco-de-Identidad-Digital.pdf</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://digitalidstrategy.cdt.ca.gov/CDT-Digital-ID-Framework-Strategy.pdf"/>
+</url>
 
 <url>
   <loc>https://digitalidstrategy.cdt.ca.gov/primary-elements.html</loc>
@@ -30,6 +51,13 @@
     rel="alternate"
     hreflang="es"
     href="https://digitalidstrategy.cdt.ca.gov/es/primary-elements-es.html"/>
+</url>
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/es/primary-elements-es.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://digitalidstrategy.cdt.ca.gov/primary-elements.html"/>
 </url>
 
 <url>
@@ -39,6 +67,13 @@
     hreflang="es"
     href="https://digitalidstrategy.cdt.ca.gov/es/projects-es.html"/>
 </url>
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/es/projects-es.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://digitalidstrategy.cdt.ca.gov/projects.html"/>
+</url>
 
 <url>
   <loc>https://digitalidstrategy.cdt.ca.gov/roadmap.html</loc>
@@ -47,6 +82,13 @@
     hreflang="es"
     href="https://digitalidstrategy.cdt.ca.gov/es/roadmap-es.html"/>
 </url>
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/es/roadmap-es.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://digitalidstrategy.cdt.ca.gov/roadmap.html"/>
+</url>
 
 <url>
   <loc>https://digitalidstrategy.cdt.ca.gov/sitemap.html</loc>
@@ -54,6 +96,13 @@
     rel="alternate"
     hreflang="es"
     href="https://digitalidstrategy.cdt.ca.gov/es/sitemap-es.html"/>
+</url>
+<url>
+  <loc>https://digitalidstrategy.cdt.ca.gov/es/sitemap-es.html</loc>
+  <xhtml:link
+    rel="alternate"
+    hreflang="en"
+    href="https://digitalidstrategy.cdt.ca.gov/sitemap.html"/>
 </url>
 
 </urlset>
