@@ -1,6 +1,6 @@
 {
   "name": "cdt-digital-id-strategy",
-  "version": "6.4.0",
+  "version": "1.0.0",
   "description": "Digital ID Strategy",
   "scripts": {
     "start": "watch-http-server"
@@ -11,6 +11,5 @@
   "devDependencies": {
   },
   "dependencies": {
-    "@cagovweb/state-template": "6.4.0"
   }
 }
