@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Digital ID Strategy",
   "scripts": {
-    "start": "watch-http-server"
+    "build": "eleventy",
+    "start": "eleventy --serve"
   },
   "keywords": [],
   "author": "",
