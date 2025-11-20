@@ -573,65 +573,6 @@
       </main>
     </div>
     <!-- Global Footer -->
-    <footer id="footer" class="global-footer">
-      <div class="container">
-        <div class="d-flex">
-          <a href="https://ca.gov" class="cagov-logo">
-            <span class="sr-only">CA.gov</span>
-            <span class="ca-gov-logo-svg"></span>
-          </a>
-          <ul class="footer-links">
-            <li>
-              <a href="https://cdt.ca.gov/conditions-of-use/"
-                >Condiciones de Uso</a
-              >
-            </li>
-            <li>
-              <a href="https://cdt.ca.gov/privacy-policy/"
-                >Política de privacidad
-              </a>
-            </li>
-            <li>
-              <a href="https://cdt.ca.gov/accessibility/">Accesibilidad</a>
-            </li>
-            <li>
-              <a href="/es/website-accessibility-certification-es.html"
-                >Certificación de accesibilidad del sitio web</a
-              >
-            </li>
-            <li>
-              <a href="sitemap-es.html">Mapa del sitio</a>
-            </li>
-          </ul>
-          <ul class="socialsharer-container">
-            <li>
-              <a
-                href="https://github.com/Office-of-Digital-Innovation/California-State-Web-Template"
-              >
-                <span class="ca-gov-icon-github" aria-hidden="true"></span>
-                <span class="sr-only">GitHub</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Copyright Statement -->
-      <div class="copyright">
-        <div class="container text-right">
-          Copyright &copy;
-          <span id="thisyear">
-            <script>
-              document
-                .getElementById("thisyear")
-                .appendChild(document.createTextNode(new Date().getFullYear()));
-            </script>
-          </span>
-          Estado de California
-        </div>
-      </div>
-      <button class="return-top">
-        <span class="sr-only">Volver arriba</span>
-      </button>
-    </footer>
+    {% include "footer-es.njk" %}
   </body>
 </html>
