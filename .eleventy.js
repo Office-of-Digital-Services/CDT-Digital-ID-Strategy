@@ -1,7 +1,7 @@
 module.exports = function (eleventyConfig) {
   // Passthrough copy for static assets
-  eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy({
     "src/root": "."
   });
