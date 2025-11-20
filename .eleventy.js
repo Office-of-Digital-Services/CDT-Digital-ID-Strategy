@@ -5,8 +5,8 @@ module.exports = function (eleventyConfig) {
   // Add more passthroughs if needed (e.g., fonts, js)
   return {
     dir: {
-      input: ".",
-      includes: "src/_includes",
+      input: "src",
+      includes: "_includes",
       output: "_site",
     },
     htmlTemplateEngine: "njk",
