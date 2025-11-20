@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Digital ID Strategy",
   "scripts": {
-    "start": "watch-http-server"
+    "build": "eleventy",
+    "start": "eleventy --serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-  },
-  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "nunjucks": "^3.2.4",
+    "prettier": "^3.6.2"
   }
 }
