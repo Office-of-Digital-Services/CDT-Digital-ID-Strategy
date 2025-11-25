@@ -98,6 +98,11 @@ ul {
   }
 }
 
+.bottom-section {
+  display: flex;
+  justify-content: center;
+}
+
 .bottom-section h2 {
   border-width: 0 0 1px 0;
   border-color: #046b99;
