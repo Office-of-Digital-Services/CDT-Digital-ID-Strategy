@@ -151,21 +151,23 @@
         <details
           class="template-header-full__3-main-menu-button"
           name="template-header-full__buttongroup">
-          <summary lang="en">
-            <span class="template-sr-only">Main menu</span>
-            {% if lang == "es" %}
+          {% if lang == "es" %}
+          <summary lang="es">
             <span class="template-header-full__3-main-menu-label"
-              >Menú principal</span
-            >
-            {% else %}
-            <span class="template-header-full__3-main-menu-label"
-              >Main menu</span
-            >
-            {% endif %}
-            <span
+              ><span class="template-sr-only">Menú principal</span></span
+            ><span
               aria-hidden="true"
               class="template-header-full__4-main-menu-hamburger"></span>
           </summary>
+          {% else %}
+          <summary lang="en">
+            <span class="template-header-full__3-main-menu-label"
+              ><span class="template-sr-only">Main menu</span></span
+            ><span
+              aria-hidden="true"
+              class="template-header-full__4-main-menu-hamburger"></span>
+          </summary>
+          {% endif %}
         </details>
 
         <div class="template-header-full__3-main-menu">

@@ -1,3 +1,11 @@
 .bg-understated {
   background-color: #eef8fb;
 }
+
+.h-100 {
+  height: 100%;
+}
+
+.border-transparent {
+  border-color: transparent !important;
+}
