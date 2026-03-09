@@ -26,30 +26,14 @@
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="{{ canonical }}"/>
     <meta property="og:title" content="{{ title }}"/>
-    {% if events %}
-      <meta property="og:description" content="You’re invited! Events celebrating California’s 175th Birthday"/>
-    {% else %}
-      <meta property="og:description" content="{{ description }}"/>
-    {% endif %}
-    {% if events %}
-      <meta property="og:image" content="https://www.celebrate.ca.gov/images/ca175-events.jpg"/>
-    {% else %}
-      <meta property="og:image" content="https://www.celebrate.ca.gov/images/ca175-social.jpg"/>
-    {% endif %}
-    <!-- Twitter -->
+    <meta property="og:description" content="{{ description }}"/>
+    <meta
+    property="og:image" content="https://www.digitalidstrategy.cdt.ca.gov/images/lightrail-share.png"/> <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:url" content="{{ canonical }}"/>
     <meta name="twitter:title" content="{{ title }}"/>
-    {% if events %}
-      <meta name="twitter:description" content="You’re invited! Events celebrating California’s 175th Birthday"/>
-    {% else %}
-      <meta name="twitter:description" content="{{ description }}"/>
-    {% endif %}
-    {% if events %}
-      <meta name="twitter:image" content="https://www.celebrate.ca.gov/images/ca175-events.jpg"/>
-    {% else %}
-      <meta name="twitter:image" content="https://www.celebrate.ca.gov/images/ca175-social.jpg"/>
-    {% endif %}
+    <meta name="twitter:description" content="{{ description }}"/>
+    <meta name="twitter:image" content="https://www.digitalidstrategy.cdt.ca.gov/images/lightrail-share.png"/>
     <link rel="shortcut icon" href="/favicon.ico"/> <!-- FONT-->
     <!-- Preconnects and preloads -->
     <link
@@ -78,10 +62,35 @@
     </style>
     <!-- SCRIPTS-->
     <script src="/js/template.js?vFeb" defer></script>
-    <script src="/js/translate.js?vFeb" defer></script>
     <!-- BEGIN Google Analytics -->
+    <script>
+      // Your GA4 Measurement ID that this website should use for website analytics
+      var yourGA4MeasurementId = "G-CLMC17ZTJT"; // Change it to the one for your project. Support code to make this work, just leave this as is
+      var loadGTM = function () {
+        var stateGTMAccount = "GTM-NJ6Q4MV"; // GTM-NJ6Q4MV - all ca.gov
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer'
+              ? '&l=' + l
+              : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+          (function () {
+            dataLayer.push(arguments)
+          })('config', yourGA4MeasurementId, {cookie_flags: 'secure;samesite=lax;domain='});
+        })(window, document, 'script', 'dataLayer', stateGTMAccount);
+      };
+      "requestIdleCallback" in window
+        ? requestIdleCallback(loadGTM)
+        : setTimeout(loadGTM, 200);
+    </script>
     <!-- END Google Analytics -->
-    <!-- Statewide Alerts Server --><script defer src="https://alert.cdt.ca.gov" crossorigin="anonymous"> </script>
+    <!-- Statewide Alerts Server -->
+    <script defer src="https://alert.cdt.ca.gov" crossorigin="anonymous"></script>
   </head>
   <body>
     {% include 'header.html' %}
