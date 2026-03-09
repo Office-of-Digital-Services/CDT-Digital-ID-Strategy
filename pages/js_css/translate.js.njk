@@ -1,0 +1,10 @@
+---
+layout: null
+permalink: "js/translate.js"
+eleventyExcludeFromCollections: true
+---
+
+{%- set code -%}
+{%- include "../../src/js/googletranslate.mjs" -%}
+{%- endset -%}
+{{- code | jsmin | safe -}}
