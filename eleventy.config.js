@@ -52,7 +52,15 @@ module.exports = async function (
         // @ts-ignore
         PurgeCSS({
           content: contentPaths,
-          safelist: [":focus", /focus/, "focus-visible", "focus-within"],
+          safelist: [
+            ":focus",
+            ":hover",
+            /focus/,
+            "focus-visible",
+            "focus-within",
+            ":first-child",
+            ":last-child"
+          ],
           defaultExtractor: (/** @type {string} */ content) =>
             content.match(/[\w-/:]+(?<!:)/g) || []
         })
