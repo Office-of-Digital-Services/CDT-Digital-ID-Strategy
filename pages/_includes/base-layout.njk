@@ -51,17 +51,13 @@
       {%- include "../../src/css/template-page-header.html.css" -%}
       {%- include "../../src/css/template-progress-tracker.html.css" -%}
       {%- include "../../src/css/template-site-footer.html.css" -%}
+      {%- include "../../src/css/template-header-full.html.css" -%}
+      {%- include "../../src/css/cagov-footer.html.css" -%}
       {%- include "../../src/css/custom.css" -%}
       {%- endset -%}
       {{- css | purgeCSS | safe -}}
-      {%- set css -%}
-      {%- include "../../src/css/template-header-full.html.css" -%}
-      {%- include "../../src/css/cagov-footer.html.css" -%}
-      {%- endset -%}
-      {{- css | cssmin | safe -}}
     </style>
-    <!-- SCRIPTS-->
-    <script src="/js/template.js?vFeb" defer></script>
+
     <!-- BEGIN Google Analytics -->
     <script>
       // Your GA4 Measurement ID that this website should use for website analytics
