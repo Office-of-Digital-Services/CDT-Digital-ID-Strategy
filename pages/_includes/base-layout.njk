@@ -78,8 +78,6 @@
     <style>{{-cssBundle | purgeCSS(purgeCssHtml) | safe-}}</style>
   </head>
   <body>
-    {% include 'header.html' %}
-    {{ content | safe }}
-    {% include 'footer.html' %}
+    {{ purgeCssHtml | safe }}
   </body>
 </html>
