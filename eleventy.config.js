@@ -53,6 +53,15 @@ module.exports = async function (
             raw: css
           }
         ],
+        safelist: [
+          ":focus",
+          ":hover",
+          /focus/,
+          "focus-visible",
+          "focus-within",
+          ":first-child",
+          ":last-child"
+        ],
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
       });
       return minifyCSS(purge[0].css);
