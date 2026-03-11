@@ -1,3 +1,8 @@
+{% set purgeCssHtml %}
+{% include 'header.html' %}
+{{ content | safe }}
+{% include 'footer.html' %}
+{% endset -%}
 <!doctype html>
 <html lang="{{ lang }}">
   <head>
@@ -42,22 +47,7 @@
       as="font"
       type="font/woff2"
       crossorigin/> <style>
-      {%- set css -%}
-      {%- include "../../src/css/template-grid.html.css" -%}
-      {%- include "../../src/css/template-typography.html.css" -%}
-      {%- include "../../src/css/template-banner.html.css" -%}
-      {%- include "../../src/css/template-button.html.css" -%}
-      {%- include "../../src/css/template-card.html.css" -%}
-      {%- include "../../src/css/template-page-header.html.css" -%}
-      {%- include "../../src/css/template-progress-tracker.html.css" -%}
-      {%- include "../../src/css/template-site-footer.html.css" -%}
-      {%- include "../../src/css/template-header-full.html.css" -%}
-      {%- include "../../src/css/cagov-footer.html.css" -%}
-      {%- include "../../src/css/custom.css" -%}
-      {%- endset -%}
-      {{- css | purgeCSS | safe -}}
-    </style>
-
+      {{-cssBundle | purgeCSS(purgeCssHtml) | safe-}}</style>
     <!-- BEGIN Google Analytics -->
     <script>
       // Your GA4 Measurement ID that this website should use for website analytics

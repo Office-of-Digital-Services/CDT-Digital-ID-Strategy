@@ -1,7 +1,6 @@
 //@ts-check
 const { minify } = require("terser");
-const postcss = require("postcss");
-const PurgeCSS = require("@fullhuman/postcss-purgecss");
+const { PurgeCSS } = require("purgecss");
 
 /**
  * @typedef {import("./node_modules/@11ty/eleventy/src/defaultConfig.js").defaultConfig} EleventyDefaultConfig
@@ -38,35 +37,25 @@ module.exports = async function (
   // PurgeCSS filter to extract only used CSS
   eleventyConfig.addFilter(
     "purgeCSS",
-    async (
+    async function purgeCSS(
       /** @type {string} */ css,
-      contentPaths = [
-        "./pages/**/*.html",
-        "./src/css/**/*.css",
-        "./src/js/**/*.mjs",
-        "./src/_includes/**/*.html",
-        "./node_modules/@cagovweb/state-template/dist/js/cagov.core.min.js"
-      ]
-    ) => {
-      const result = await postcss([
-        // @ts-ignore
-        PurgeCSS({
-          content: contentPaths,
-          safelist: [
-            ":focus",
-            ":hover",
-            /focus/,
-            "focus-visible",
-            "focus-within",
-            ":first-child",
-            ":last-child"
-          ],
-          defaultExtractor: (/** @type {string} */ content) =>
-            content.match(/[\w-/:]+(?<!:)/g) || []
-        })
-      ]).process(css, { from: undefined });
-      // Minify the purged CSS
-      return minifyCSS(result.css);
+      /** @type {string} */ html
+    ) {
+      const purge = await new PurgeCSS().purge({
+        content: [
+          {
+            raw: "<html><body>" + html + "</body></html>",
+            extension: "html"
+          }
+        ],
+        css: [
+          {
+            raw: css
+          }
+        ],
+        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+      });
+      return minifyCSS(purge[0].css);
     }
   );
 

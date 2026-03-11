@@ -21,8 +21,6 @@
     "@11ty/eleventy": "^3.1.2",
     "@cagovweb/state-template": "^6.5.5",
     "@fullhuman/postcss-purgecss": "^5.0.0",
-    "postcss": "^8.4.47",
-    "postcss-nested": "^6.2.0",
     "terser": "^5.39.0"
   }
 }
