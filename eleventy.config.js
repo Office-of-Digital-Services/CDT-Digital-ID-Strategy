@@ -37,7 +37,11 @@ module.exports = async function (
         /calc\(\s*([^)]+?)\s*\)/g,
         (match, inner) =>
           "calc(" +
-          inner.replace(/\s*\+\s*/g, "+").replace(/\s*-\s*/g, "-") +
+          inner
+            .replace(/\s*\+\s*/g, "+")
+            .replace(/\s*-\s*/g, "-")
+            .replace(/\s*\*\s*/g, "*")
+            .replace(/\s*\/\s*/g, "/") +
           ")"
       );
 
@@ -71,8 +75,7 @@ module.exports = async function (
         ],
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
       });
-      //return purge[0].css;
-      return minifyCSS(purge[0].css);
+      return purge[0].css;
     }
   );
 
