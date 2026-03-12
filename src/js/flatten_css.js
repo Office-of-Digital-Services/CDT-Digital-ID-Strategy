@@ -1,5 +1,4 @@
 (function () {
-
   //
   // CSS parser + media-aware AST + flattener
   // Safari 13.1 compatible
@@ -294,15 +293,41 @@
     return css;
   }
 
+  function stripComments(css) {
+    var out = "";
+    var i = 0;
+    var inside = false;
+
+    while (i < css.length) {
+      // Detect start of comment
+      if (!inside && css[i] === "/" && css[i + 1] === "*") {
+        inside = true;
+        i += 2;
+        continue;
+      }
+
+      // Detect end of comment
+      if (inside && css[i] === "*" && css[i + 1] === "/") {
+        inside = false;
+        i += 2;
+        continue;
+      }
+
+      // Copy characters only when not inside a comment
+      if (!inside) out += css[i];
+
+      i++;
+    }
+
+    return out;
+  }
+
   // ------------------------------
   // Public API
   // ------------------------------
   function parseCSS(cssText) {
+    cssText = stripComments(cssText);
     return parseBlocks(tokenize(cssText));
-  }
-
-  function stringifyCSS(ast) {
-    return emitBlocks(ast, 0);
   }
 
   function flattenCSS(cssText) {
