@@ -81,10 +81,11 @@
       defer
       src="https://alert.cdt.ca.gov"
       crossorigin="anonymous"></script>
+
     <!-- Stylesheet -->
     {% set purgeCssHtml %} {% include 'header.html' %} {{ content | safe }} {%
     include 'footer.html' %} {% endset -%} {{ cssBundle | purgeCSS(purgeCssHtml)
-    | cssmin | wrapTag('style', 'id="cagov-custom"') | safe }}
+    | cssmin | wrapTag('style') | safe }}
     <!-- Custom Script -->
     {% set script -%} {%- include "../../src/js/cagov-header-full.html.js"-%}
     {%- endset %} {{ script | jsmin | wrapTag('script') | safe }}

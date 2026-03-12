@@ -349,24 +349,13 @@
     return emitFlatCSS(rules);
   }
 
-  // ------------------------------
-  // Example usage
-  // ------------------------------
-  // var ast = parseCSS(nestedCSS);
-  // console.log(stringifyCSS(ast)); // nested, normalized
-  // console.log(flattenCSS(nestedCSS)); // flattened CSS
+  const styles = document.querySelectorAll("style");
+  styles.forEach(style => {
+    const input = style.textContent;
 
-  const style = document.querySelector("style#cagov-custom");
-  if (!style) {
-    console.error("POLYFILL: Stylesheet 'style#cagov-custom' is missing.");
-    return;
-  }
+    const flat = flattenCSS(input);
 
-  const input = style.textContent;
-
-  //const flat = input;
-  const flat = flattenCSS(input);
-
-  style.textContent = flat;
-  console.log("POLYFILL: Nested CSS flattened at runtime.");
+    style.textContent = flat;
+    console.log("POLYFILL: Nested CSS flattened at runtime.");
+  });
 })();
