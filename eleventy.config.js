@@ -64,7 +64,7 @@ module.exports = async function (
         ],
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
       });
-      return minifyCSS(purge[0].css);
+      return purge[0].css;
     }
   );
 
@@ -100,6 +100,21 @@ module.exports = async function (
     "canonical",
     /** @type {  (this: { ctx: { page: { url: string } } }) => string} */ function () {
       return domain + this.ctx.page.url;
+    }
+  );
+
+  /**
+   * Wraps content in a specified HTML tag with optional attributes.
+   */
+  eleventyConfig.addFilter(
+    "wrapTag",
+    function (
+      /** @type {string} */ content,
+      /** @type {string} */ tagName,
+      /** @type {string} */ attributes = ""
+    ) {
+      const attrs = attributes.trim() ? " " + attributes.trim() : "";
+      return `<${tagName}${attrs}>${content}</${tagName}>`;
     }
   );
 
