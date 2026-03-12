@@ -1,13 +1,22 @@
+//@ts-check
 (function () {
   //
   // CSS parser + media-aware AST + flattener
   // Safari 13.1 compatible
   //
 
-  // ------------------------------
-  // Tokenizer
-  // ------------------------------
+  /**
+   * @typedef CSSToken
+   * @property {string} type
+   * @property {string} [value]
+   */
+
+  /**
+   * Tokenizer
+   * @param {string} css
+   */
   function tokenize(css) {
+    /** @type {CSSToken[]} */
     var tokens = [];
     var buf = "";
     var i, c;
@@ -33,9 +42,10 @@
     return tokens;
   }
 
-  // ------------------------------
-  // Declaration splitter (semicolon-based)
-  // ------------------------------
+  /**
+   * Declaration splitter (semicolon-based)
+   * @param {string} text
+   */
   function splitDeclarations(text) {
     var out = [];
     var buf = "";
@@ -57,9 +67,18 @@
     return out;
   }
 
-  // ------------------------------
-  // Parser → AST
-  // ------------------------------
+  /**
+   * @typedef CSSNode
+   * @property {"root" | "rule" | "media"} type
+   * @property {string} [media]
+   * @property {string[]} selectors
+   * @property {string[]} declarations
+   */
+
+  /**
+   * parser → AST
+   * @param {CSSToken[]} tokens
+   */
   function parseBlocks(tokens) {
     var root = { type: "root", selector: "", declarations: [], children: [] };
     var stack = [root];
@@ -69,7 +88,7 @@
       var t = tokens[i];
 
       if (t.type === "text") {
-        var text = t.value;
+        var text = t.value || "";
 
         if (tokens[i + 1] && tokens[i + 1].type === "{") {
           // Text before "{" may contain declarations + a nested selector.
@@ -123,38 +142,10 @@
     return root;
   }
 
-  // ------------------------------
-  // Round-trip emitter (no flattening)
-  // ------------------------------
-  function emitBlocks(block, indentLevel) {
-    var css = "";
-    var indent = new Array(indentLevel + 1).join("  ");
-
-    if (block.selector) {
-      css += indent + block.selector + " {\n";
-    }
-
-    for (var i = 0; i < block.declarations.length; i++) {
-      css += indent + "  " + block.declarations[i] + ";\n";
-    }
-
-    for (var j = 0; j < block.children.length; j++) {
-      css += emitBlocks(
-        block.children[j],
-        indentLevel + (block.selector ? 1 : 0)
-      );
-    }
-
-    if (block.selector) {
-      css += indent + "}\n";
-    }
-
-    return css;
-  }
-
-  // ------------------------------
-  // Selector utilities
-  // ------------------------------
+  /**
+   * Selector utilities
+   * @param {string} sel
+   */
   function splitSelectors(sel) {
     var parts = sel.split(",");
     var out = [];
@@ -165,6 +156,11 @@
     return out;
   }
 
+  /**
+   * Combines parent selectors with child selector, handling "&" references.
+   * @param {string[]} parentList
+   * @param {string} childSel
+   */
   function expandSelectors(parentList, childSel) {
     if (!childSel) return parentList;
 
@@ -194,6 +190,11 @@
     return result;
   }
 
+  /**
+   * Normalizes media queries to a standard form.
+   * E.g. converts "(width >= 576px)" to "(min-width: 576px)"
+   * @param {string} q
+   */
   function normalizeMediaQuery(q) {
     // Input: "@media (width >= 576px)"
     // Output: "@media (min-width: 576px)"
@@ -233,49 +234,15 @@
     // If it’s already classic syntax or something else, leave it alone
     return q;
   }
-  function normalizeMediaQuery(q) {
-    // Input: "@media (width >= 576px)"
-    // Output: "@media (min-width: 576px)"
 
-    // Extract the condition inside @media (...)
-    var m = q.match(/^@media\s*\(([^)]+)\)\s*$/);
-    if (!m) return q; // not a simple media query
-
-    var cond = m[1].trim();
-
-    // >=  → min-width
-    var gte = cond.match(/^width\s*>=\s*(\d+)px$/);
-    if (gte) {
-      return "@media (min-width: " + gte[1] + "px)";
-    }
-
-    // >  → min-width (value + 1)
-    var gt = cond.match(/^width\s*>\s*(\d+)px$/);
-    if (gt) {
-      var v = parseInt(gt[1], 10) + 1;
-      return "@media (min-width: " + v + "px)";
-    }
-
-    // <=  → max-width
-    var lte = cond.match(/^width\s*<=\s*(\d+)px$/);
-    if (lte) {
-      return "@media (max-width: " + lte[1] + "px)";
-    }
-
-    // <  → max-width (value - 1)
-    var lt = cond.match(/^width\s*<\s*(\d+)px$/);
-    if (lt) {
-      var v2 = parseInt(lt[1], 10) - 1;
-      return "@media (max-width: " + v2 + "px)";
-    }
-
-    // If it’s already classic syntax or something else, leave it alone
-    return q;
-  }
-
-  // ------------------------------
-  // Flattening traversal
-  // ------------------------------
+  /**
+   * Collects flat rules from the AST, combining selectors and media queries.
+   *
+   * @param {CSSNode} node - Current AST node
+   * @param {string[]} parentSelectors - List of parent selectors
+   * @param {string} mediaSelector - Current media query context
+   * @param {CSSNode[]} out - Accumulator for flat rules
+   */
   function collectFlatRules(node, parentSelectors, mediaSelector, out) {
     if (!parentSelectors) parentSelectors = [""];
 
@@ -372,6 +339,10 @@
     return css;
   }
 
+  /**
+   * Strips comments from CSS text.
+   * @param {string} css
+   */
   function stripComments(css) {
     var out = "";
     var i = 0;
@@ -404,11 +375,16 @@
   // ------------------------------
   // Public API
   // ------------------------------
+  /**
+   * @param {string} cssText
+   */
   function parseCSS(cssText) {
-    cssText = stripComments(cssText);
-    return parseBlocks(tokenize(cssText));
+    return parseBlocks(tokenize(stripComments(cssText)));
   }
 
+  /**
+   * @param {string} cssText
+   */
   function flattenCSS(cssText) {
     var ast = parseCSS(cssText);
     var rules = [];
