@@ -321,15 +321,18 @@ div.template-header-full {
 
       /* Main menu styles */
       > details.template-header-full__3-main-menu-button {
+        @media (width >= 992px) {
+          display: none;
+        }
         > summary {
+          &::-webkit-details-marker {
+            display: none; /* works in modern Safari, Chrome, Edge */
+          }
+
           list-style: none;
           padding: 0.5rem;
           position: relative;
           left: 0.5rem;
-
-          @media (width >= 992px) {
-            display: none;
-          }
 
           > span.template-header-full__4-main-menu-hamburger {
             position: relative;
