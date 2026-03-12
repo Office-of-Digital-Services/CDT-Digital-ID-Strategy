@@ -299,24 +299,21 @@
    */
   function emitFlatCSS(rules) {
     var css = "";
-    var i, j, k;
 
     /** @type {Object<string, CSSNode[]>} */
     var byMedia = {};
-    for (i = 0; i < rules.length; i++) {
-      var r = rules[i];
+    rules.forEach(function (r) {
       var key = r.media || "__no_media__";
       if (!byMedia[key]) byMedia[key] = [];
       byMedia[key].push(r);
-    }
+    });
 
     var mediaKeys = [];
     for (var m in byMedia) {
       if (byMedia.hasOwnProperty(m)) mediaKeys.push(m);
     }
 
-    for (i = 0; i < mediaKeys.length; i++) {
-      var mediaKey = mediaKeys[i];
+    mediaKeys.forEach(mediaKey => {
       var group = byMedia[mediaKey];
 
       if (mediaKey === "__no_media__") {
@@ -342,7 +339,7 @@
         });
         css += "}\n\n";
       }
-    }
+    });
 
     return css;
   }
