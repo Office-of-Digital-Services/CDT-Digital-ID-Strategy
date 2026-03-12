@@ -3,9 +3,8 @@
   if (!style) return;
 
   const input = style.textContent;
-
   //
-  // Lightweight CSS parser + re-emitter
+  // CSS parser with media-query awareness
   // Safari 13.1 compatible
   //
 
@@ -42,7 +41,7 @@
   // Parser → AST
   // ------------------------------
   function parseBlocks(tokens) {
-    var root = { selector: "", declarations: [], children: [] };
+    var root = { type: "root", selector: "", declarations: [], children: [] };
     var stack = [root];
     var i = 0;
 
@@ -52,9 +51,17 @@
       if (t.type === "text") {
         var text = t.value;
 
-        // If next token is "{", this is a selector
+        // If next token is "{", this starts a new block
         if (tokens[i + 1] && tokens[i + 1].type === "{") {
-          var block = { selector: text, declarations: [], children: [] };
+          var isMedia = text.indexOf("@media") === 0;
+
+          var block = {
+            type: isMedia ? "media" : "rule",
+            selector: text,
+            declarations: [],
+            children: []
+          };
+
           stack[stack.length - 1].children.push(block);
           stack.push(block);
           i += 2; // skip "{"
@@ -81,7 +88,7 @@
   }
 
   // ------------------------------
-  // Emitter (no flattening)
+  // Emitter (no flattening yet)
   // ------------------------------
   function emitBlocks(block, indentLevel) {
     var css = "";
@@ -121,6 +128,13 @@
   function stringifyCSS(ast) {
     return emitBlocks(ast, 0);
   }
+
+  // ------------------------------
+  // Example usage
+  // ------------------------------
+  // var ast = parseCSS(nestedCSS);
+  // console.log(ast);          // inspect structure
+  // console.log(stringifyCSS(ast)); // round-trip output
 
   // ------------------------------
   // Example usage
