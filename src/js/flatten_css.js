@@ -356,4 +356,6 @@
     style.textContent = flat;
     console.log("POLYFILL: Nested CSS flattened at runtime.");
   });
+
+  document.documentElement.style.visibility = "";
 })();
