@@ -111,6 +111,21 @@ module.exports = async function (
     }
   );
 
+  /**
+   * Wraps content in a specified HTML tag with optional attributes.
+   */
+  eleventyConfig.addFilter(
+    "wrapTag",
+    function (
+      /** @type {string} */ content,
+      /** @type {string} */ tagName,
+      /** @type {string} */ attributes = ""
+    ) {
+      const attrs = attributes.trim() ? " " + attributes.trim() : "";
+      return `<${tagName}${attrs}>${content}</${tagName}>`;
+    }
+  );
+
   //Start with default config, easier to configure 11ty later
   /** @type {EleventyDefaultConfig} */
   const config = {
