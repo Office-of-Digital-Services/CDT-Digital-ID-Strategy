@@ -432,6 +432,5 @@
   const flat = flattenCSS(input);
 
   style.textContent = flat;
-  flattenOutput.value = flat;
   console.log("POLYFILL: Nested CSS flattened at runtime.");
 })();
