@@ -328,39 +328,6 @@
     return css;
   }
 
-  /**
-   * Strips comments from CSS text.
-   * @param {string} css
-   */
-  function stripComments(css) {
-    var out = "";
-    var i = 0;
-    var inside = false;
-
-    while (i < css.length) {
-      // Detect start of comment
-      if (!inside && css[i] === "/" && css[i + 1] === "*") {
-        inside = true;
-        i += 2;
-        continue;
-      }
-
-      // Detect end of comment
-      if (inside && css[i] === "*" && css[i + 1] === "/") {
-        inside = false;
-        i += 2;
-        continue;
-      }
-
-      // Copy characters only when not inside a comment
-      if (!inside) out += css[i];
-
-      i++;
-    }
-
-    return out;
-  }
-
   // ------------------------------
   // Public API
   // ------------------------------
@@ -368,7 +335,7 @@
    * @param {string} cssText
    */
   function parseCSS(cssText) {
-    return parseBlocks(tokenize(stripComments(cssText)));
+    return parseBlocks(tokenize(cssText));
   }
 
   /**

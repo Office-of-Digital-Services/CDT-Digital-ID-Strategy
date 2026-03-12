@@ -32,7 +32,14 @@ module.exports = async function (
       .replace(/ ([{:}]) /g, "$1")
       .replace(/([{:}]) /g, "$1")
       .replace(/([;,]) /g, "$1")
-      .replace(/ !/g, "!");
+      .replace(/ !/g, "!")
+      .replace(
+        /calc\(\s*([^)]+?)\s*\)/g,
+        (match, inner) =>
+          "calc(" +
+          inner.replace(/\s*\+\s*/g, "+").replace(/\s*-\s*/g, "-") +
+          ")"
+      );
 
   // PurgeCSS filter to extract only used CSS
   eleventyConfig.addFilter(
@@ -64,8 +71,8 @@ module.exports = async function (
         ],
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
       });
-      return purge[0].css;
-      //return minifyCSS(purge[0].css);
+      //return purge[0].css;
+      return minifyCSS(purge[0].css);
     }
   );
 
