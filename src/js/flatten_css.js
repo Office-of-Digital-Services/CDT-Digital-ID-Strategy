@@ -310,33 +310,26 @@
 
     const mediaKeys = Object.keys(byMedia);
 
-    mediaKeys.forEach(mediaKey => {
+    for (const mediaKey of mediaKeys) {
       const group = byMedia[mediaKey];
+      const isNoMedia = mediaKey === "__no_media__";
+      const indent = isNoMedia ? "" : "  ";
+      const declIndent = isNoMedia ? "  " : "    ";
 
-      if (mediaKey === "__no_media__") {
-        group.forEach(rule => {
-          rule.selectors?.forEach(sel => {
-            css += sel + " {\n";
-            rule.declarations?.forEach(decl => {
-              css += "  " + decl + ";\n";
-            });
-            css += "}\n\n";
-          });
-        });
-      } else {
-        css += mediaKey + " {\n";
-        group.forEach(mrule => {
-          mrule.selectors?.forEach(sel => {
-            css += "  " + sel + " {\n";
-            mrule.declarations?.forEach(decl => {
-              css += "    " + decl + ";\n";
-            });
-            css += "  }\n\n";
-          });
-        });
-        css += "}\n\n";
+      if (!isNoMedia) css += mediaKey + " {\n";
+
+      for (const rule of group) {
+        for (const sel of rule.selectors || []) {
+          css += indent + sel + " {\n";
+          for (const decl of rule.declarations || []) {
+            css += declIndent + decl + ";\n";
+          }
+          css += indent + "}\n\n";
+        }
       }
-    });
+
+      if (!isNoMedia) css += "}\n\n";
+    }
 
     return css;
   }
