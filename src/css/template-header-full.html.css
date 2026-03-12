@@ -325,6 +325,10 @@ div.template-header-full {
           display: none;
         }
         > summary {
+          &::-webkit-details-marker {
+            display: none; /* works in modern Safari, Chrome, Edge */
+          }
+
           list-style: none;
           padding: 0.5rem;
           position: relative;
