@@ -307,18 +307,16 @@
     for (const mediaKey of mediaKeys) {
       const group = byMedia[mediaKey];
       const isNoMedia = mediaKey === "__no_media__";
-      const indent = isNoMedia ? "" : "  ";
-      const declIndent = isNoMedia ? "  " : "    ";
 
       if (!isNoMedia) css += mediaKey + " {\n";
 
       for (const rule of group) {
         for (const sel of rule.selectors || []) {
-          css += indent + sel + " {\n";
+          css += sel + " {\n";
           for (const decl of rule.declarations || []) {
-            css += declIndent + decl + ";\n";
+            css += decl + ";\n";
           }
-          css += indent + "}\n\n";
+          css += "}\n\n";
         }
       }
 
