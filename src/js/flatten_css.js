@@ -298,23 +298,20 @@
    * @param {CSSNode[]} rules
    */
   function emitFlatCSS(rules) {
-    var css = "";
+    let css = "";
 
     /** @type {Object<string, CSSNode[]>} */
-    var byMedia = {};
+    const byMedia = {};
     rules.forEach(function (r) {
       var key = r.media || "__no_media__";
       if (!byMedia[key]) byMedia[key] = [];
       byMedia[key].push(r);
     });
 
-    var mediaKeys = [];
-    for (var m in byMedia) {
-      if (byMedia.hasOwnProperty(m)) mediaKeys.push(m);
-    }
+    const mediaKeys = Object.keys(byMedia);
 
     mediaKeys.forEach(mediaKey => {
-      var group = byMedia[mediaKey];
+      const group = byMedia[mediaKey];
 
       if (mediaKey === "__no_media__") {
         group.forEach(rule => {
