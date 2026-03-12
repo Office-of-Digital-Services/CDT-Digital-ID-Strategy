@@ -294,13 +294,6 @@
   // ------------------------------
 
   /**
-   * @typedef {Object} FlatCSSRule
-   * @property {string[]} selectors
-   * @property {string|null} media
-   * @property {string[]} declarations
-   */
-
-  /**
    * Emits flattened CSS from flat rules.
    * @param {CSSNode[]} rules
    */
@@ -308,6 +301,7 @@
     var css = "";
     var i, j, k;
 
+    /** @type {Object<string, CSSNode[]>} */
     var byMedia = {};
     for (i = 0; i < rules.length; i++) {
       var r = rules[i];
@@ -328,25 +322,25 @@
       if (mediaKey === "__no_media__") {
         for (j = 0; j < group.length; j++) {
           var rule = group[j];
-          for (k = 0; k < rule.selectors.length; k++) {
-            css += rule.selectors[k] + " {\n";
-            for (var d = 0; d < rule.declarations.length; d++) {
-              css += "  " + rule.declarations[d] + ";\n";
-            }
+          rule.selectors?.forEach(function (sel) {
+            css += sel + " {\n";
+            rule.declarations?.forEach(function (decl) {
+              css += "  " + decl + ";\n";
+            });
             css += "}\n\n";
-          }
+          });
         }
       } else {
         css += mediaKey + " {\n";
         for (j = 0; j < group.length; j++) {
           var mrule = group[j];
-          for (k = 0; k < mrule.selectors.length; k++) {
-            css += "  " + mrule.selectors[k] + " {\n";
-            for (var md = 0; md < mrule.declarations.length; md++) {
-              css += "    " + mrule.declarations[md] + ";\n";
-            }
+          mrule.selectors?.forEach(function (sel) {
+            css += "  " + sel + " {\n";
+            mrule.declarations?.forEach(function (decl) {
+              css += "    " + decl + ";\n";
+            });
             css += "  }\n\n";
-          }
+          });
         }
         css += "}\n\n";
       }
