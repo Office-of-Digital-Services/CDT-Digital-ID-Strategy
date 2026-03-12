@@ -320,23 +320,22 @@
       var group = byMedia[mediaKey];
 
       if (mediaKey === "__no_media__") {
-        for (j = 0; j < group.length; j++) {
-          var rule = group[j];
-          rule.selectors?.forEach(function (sel) {
+        group.forEach(rule => {
+          rule.selectors?.forEach(sel => {
             css += sel + " {\n";
-            rule.declarations?.forEach(function (decl) {
+            rule.declarations?.forEach(decl => {
               css += "  " + decl + ";\n";
             });
             css += "}\n\n";
           });
-        }
+        });
       } else {
         css += mediaKey + " {\n";
         for (j = 0; j < group.length; j++) {
           var mrule = group[j];
-          mrule.selectors?.forEach(function (sel) {
+          mrule.selectors?.forEach(sel => {
             css += "  " + sel + " {\n";
-            mrule.declarations?.forEach(function (decl) {
+            mrule.declarations?.forEach(decl => {
               css += "    " + decl + ";\n";
             });
             css += "  }\n\n";
