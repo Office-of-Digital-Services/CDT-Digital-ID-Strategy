@@ -75,9 +75,11 @@
     <!-- END Google Analytics -->
     <!-- Statewide Alerts Server -->
     <script defer src="https://alert.cdt.ca.gov" crossorigin="anonymous"></script>
-    <style>{{-cssBundle | purgeCSS(purgeCssHtml) | safe-}}</style>
+    <style id="cagov-custom">{{-cssBundle | purgeCSS(purgeCssHtml) | safe-}}</style>
+    <script src="/js/template.js"></script>
   </head>
   <body>
+    <textarea rows="10" cols="100" id="flattenOutput"></textarea>
     {{ purgeCssHtml | safe }}
   </body>
 </html>

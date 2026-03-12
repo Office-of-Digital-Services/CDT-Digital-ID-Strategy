@@ -64,7 +64,8 @@ module.exports = async function (
         ],
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
       });
-      return minifyCSS(purge[0].css);
+      return purge[0].css;
+      //return minifyCSS(purge[0].css);
     }
   );
 
