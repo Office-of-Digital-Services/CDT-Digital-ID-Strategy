@@ -357,7 +357,10 @@
   // console.log(flattenCSS(nestedCSS)); // flattened CSS
 
   const style = document.querySelector("style#cagov-custom");
-  if (!style) return;
+  if (!style) {
+    console.error("POLYFILL: Stylesheet 'style#cagov-custom' is missing.");
+    return;
+  }
 
   const input = style.textContent;
 
