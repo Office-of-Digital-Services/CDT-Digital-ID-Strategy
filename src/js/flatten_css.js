@@ -331,8 +331,7 @@
         });
       } else {
         css += mediaKey + " {\n";
-        for (j = 0; j < group.length; j++) {
-          var mrule = group[j];
+        group.forEach(mrule => {
           mrule.selectors?.forEach(sel => {
             css += "  " + sel + " {\n";
             mrule.declarations?.forEach(decl => {
@@ -340,7 +339,7 @@
             });
             css += "  }\n\n";
           });
-        }
+        });
         css += "}\n\n";
       }
     }
