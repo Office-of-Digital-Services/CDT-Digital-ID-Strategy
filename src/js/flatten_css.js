@@ -68,18 +68,11 @@
   }
 
   /**
-   * @typedef CSSNode
-   * @property {"root" | "rule" | "media"} type
-   * @property {string} [media]
-   * @property {string[]} selectors
-   * @property {string[]} declarations
-   */
-
-  /**
    * parser → AST
    * @param {CSSToken[]} tokens
    */
   function parseBlocks(tokens) {
+    /** @type {CSSNode} */
     var root = { type: "root", selector: "", declarations: [], children: [] };
     var stack = [root];
     var i = 0;
@@ -105,7 +98,7 @@
 
             var decls = splitDeclarations(before);
             for (var d = 0; d < decls.length; d++) {
-              stack[stack.length - 1].declarations.push(decls[d]);
+              stack[stack.length - 1].declarations?.push(decls[d]);
             }
 
             selectorText = after.trim();
@@ -113,6 +106,7 @@
 
           var isMedia = selectorText.indexOf("@media") === 0;
 
+          /** @type {CSSNode} */
           var block = {
             type: isMedia ? "media" : "rule",
             selector: selectorText,
@@ -120,14 +114,14 @@
             children: []
           };
 
-          stack[stack.length - 1].children.push(block);
+          stack[stack.length - 1]?.children?.push(block);
           stack.push(block);
           i += 2; // skip "{"
         } else {
           // Pure declarations inside current block
           var decls2 = splitDeclarations(text);
           for (var p = 0; p < decls2.length; p++) {
-            stack[stack.length - 1].declarations.push(decls2[p]);
+            stack[stack.length - 1]?.declarations?.push(decls2[p]);
           }
           i++;
         }
@@ -236,14 +230,24 @@
   }
 
   /**
+   * @typedef CSSNode
+   * @property {"root" | "rule" | "media"} [type]
+   * @property {string} [media]
+   * @property {string} [selector]
+   * @property {string[]} [selectors]
+   * @property {string[]} [declarations]
+   * @property {CSSNode[]} [children]
+   */
+
+  /**
    * Collects flat rules from the AST, combining selectors and media queries.
    *
    * @param {CSSNode} node - Current AST node
    * @param {string[]} parentSelectors - List of parent selectors
-   * @param {string} mediaSelector - Current media query context
    * @param {CSSNode[]} out - Accumulator for flat rules
+   * @param {string} [mediaSelector] - Current media query context
    */
-  function collectFlatRules(node, parentSelectors, mediaSelector, out) {
+  function collectFlatRules(node, parentSelectors, out, mediaSelector) {
     if (!parentSelectors) parentSelectors = [""];
 
     if (node.type === "rule") {
@@ -253,7 +257,7 @@
         selectors = expandSelectors(parentSelectors, node.selector);
       }
 
-      if (node.declarations.length) {
+      if (node.declarations?.length) {
         out.push({
           selectors: selectors,
           media: mediaSelector,
@@ -261,13 +265,13 @@
         });
       }
 
-      for (var i = 0; i < node.children.length; i++) {
-        collectFlatRules(node.children[i], selectors, mediaSelector, out);
-      }
+      node.children?.forEach(child => {
+        collectFlatRules(child, selectors, out, mediaSelector);
+      });
     } else if (node.type === "media") {
-      var newMedia = normalizeMediaQuery(node.selector); // e.g. "@media (min-width: 992px)"
+      var newMedia = normalizeMediaQuery(node.selector || ""); // e.g. "@media (min-width: 992px)"
 
-      if (node.declarations.length) {
+      if (node.declarations?.length && node.selector) {
         out.push({
           selectors: parentSelectors,
           media: newMedia,
@@ -275,19 +279,31 @@
         });
       }
 
-      for (var j = 0; j < node.children.length; j++) {
-        collectFlatRules(node.children[j], parentSelectors, newMedia, out);
-      }
+      node.children?.forEach(child => {
+        collectFlatRules(child, parentSelectors, out, newMedia);
+      });
     } else if (node.type === "root") {
-      for (var k = 0; k < node.children.length; k++) {
-        collectFlatRules(node.children[k], parentSelectors, mediaSelector, out);
-      }
+      node.children?.forEach(child => {
+        collectFlatRules(child, parentSelectors, out, mediaSelector);
+      });
     }
   }
 
   // ------------------------------
   // Flattened emitter
   // ------------------------------
+
+  /**
+   * @typedef {Object} FlatCSSRule
+   * @property {string[]} selectors
+   * @property {string|null} media
+   * @property {string[]} declarations
+   */
+
+  /**
+   * Emits flattened CSS from flat rules.
+   * @param {CSSNode[]} rules
+   */
   function emitFlatCSS(rules) {
     var css = "";
     var i, j, k;
@@ -387,8 +403,9 @@
    */
   function flattenCSS(cssText) {
     var ast = parseCSS(cssText);
+    /** @type {CSSNode[]} */
     var rules = [];
-    collectFlatRules(ast, [""], null, rules);
+    collectFlatRules(ast, [""], rules);
     return emitFlatCSS(rules);
   }
 
