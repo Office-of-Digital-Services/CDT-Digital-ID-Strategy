@@ -190,42 +190,36 @@
    * @param {string} q
    */
   function normalizeMediaQuery(q) {
-    // Input: "@media (width >= 576px)"
-    // Output: "@media (min-width: 576px)"
+    const m = q.match(/^@media\s*\(([^)]+)\)\s*$/);
+    if (!m) return q;
 
-    // Extract the condition inside @media (...)
-    var m = q.match(/^@media\s*\(([^)]+)\)\s*$/);
-    if (!m) return q; // not a simple media query
+    const cond = m[1].trim();
+    const patterns = [
+      {
+        re: /^width\s*>=\s*(\d+)px$/,
+        fn: (/** @type {string} */ v) => `@media (min-width: ${v}px)`
+      },
+      {
+        re: /^width\s*>\s*(\d+)px$/,
+        fn: (/** @type {string} */ v) =>
+          `@media (min-width: ${parseInt(v, 10) + 1}px)`
+      },
+      {
+        re: /^width\s*<=\s*(\d+)px$/,
+        fn: (/** @type {string} */ v) => `@media (max-width: ${v}px)`
+      },
+      {
+        re: /^width\s*<\s*(\d+)px$/,
+        fn: (/** @type {string} */ v) =>
+          `@media (max-width: ${parseInt(v, 10) - 1}px)`
+      }
+    ];
 
-    var cond = m[1].trim();
-
-    // >=  → min-width
-    var gte = cond.match(/^width\s*>=\s*(\d+)px$/);
-    if (gte) {
-      return "@media (min-width: " + gte[1] + "px)";
+    for (const { re, fn } of patterns) {
+      const match = cond.match(re);
+      if (match) return fn(match[1]);
     }
 
-    // >  → min-width (value + 1)
-    var gt = cond.match(/^width\s*>\s*(\d+)px$/);
-    if (gt) {
-      var v = parseInt(gt[1], 10) + 1;
-      return "@media (min-width: " + v + "px)";
-    }
-
-    // <=  → max-width
-    var lte = cond.match(/^width\s*<=\s*(\d+)px$/);
-    if (lte) {
-      return "@media (max-width: " + lte[1] + "px)";
-    }
-
-    // <  → max-width (value - 1)
-    var lt = cond.match(/^width\s*<\s*(\d+)px$/);
-    if (lt) {
-      var v2 = parseInt(lt[1], 10) - 1;
-      return "@media (max-width: " + v2 + "px)";
-    }
-
-    // If it’s already classic syntax or something else, leave it alone
     return q;
   }
 
