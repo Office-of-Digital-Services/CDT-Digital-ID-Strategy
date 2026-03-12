@@ -9,15 +9,3 @@
 .border-transparent {
   border-color: transparent !important;
 }
-
-/* Hide body until nesting is confirmed or polyfilled */
-html > body {
-  visibility: hidden;
-}
-
-/* Modern browsers override this immediately */
-html {
-  > body {
-    visibility: visible;
-  }
-}

@@ -1,11 +1,13 @@
-//@ts-check
-document.addEventListener("DOMContentLoaded", () => {
+// @ts-check
+(function () {
   if (!CSS.supports("selector(&)")) {
-    //console.log("POLYFILL: CSS Nesting not supported. Loading polyfill…");
+    // Inject safeload CSS immediately before first paint
+    const style = document.createElement("style");
+    style.textContent = `html>body{visibility:hidden}html{>body{visibility:visible}}`;
+    document.head.appendChild(style);
 
     const script = document.createElement("script");
     script.src = "/js/flatten_css.js";
-    script.defer = true;
     document.head.appendChild(script);
   }
-});
+})();
