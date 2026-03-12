@@ -194,6 +194,85 @@
     return result;
   }
 
+  function normalizeMediaQuery(q) {
+    // Input: "@media (width >= 576px)"
+    // Output: "@media (min-width: 576px)"
+
+    // Extract the condition inside @media (...)
+    var m = q.match(/^@media\s*\(([^)]+)\)\s*$/);
+    if (!m) return q; // not a simple media query
+
+    var cond = m[1].trim();
+
+    // >=  → min-width
+    var gte = cond.match(/^width\s*>=\s*(\d+)px$/);
+    if (gte) {
+      return "@media (min-width: " + gte[1] + "px)";
+    }
+
+    // >  → min-width (value + 1)
+    var gt = cond.match(/^width\s*>\s*(\d+)px$/);
+    if (gt) {
+      var v = parseInt(gt[1], 10) + 1;
+      return "@media (min-width: " + v + "px)";
+    }
+
+    // <=  → max-width
+    var lte = cond.match(/^width\s*<=\s*(\d+)px$/);
+    if (lte) {
+      return "@media (max-width: " + lte[1] + "px)";
+    }
+
+    // <  → max-width (value - 1)
+    var lt = cond.match(/^width\s*<\s*(\d+)px$/);
+    if (lt) {
+      var v2 = parseInt(lt[1], 10) - 1;
+      return "@media (max-width: " + v2 + "px)";
+    }
+
+    // If it’s already classic syntax or something else, leave it alone
+    return q;
+  }
+  function normalizeMediaQuery(q) {
+    // Input: "@media (width >= 576px)"
+    // Output: "@media (min-width: 576px)"
+
+    // Extract the condition inside @media (...)
+    var m = q.match(/^@media\s*\(([^)]+)\)\s*$/);
+    if (!m) return q; // not a simple media query
+
+    var cond = m[1].trim();
+
+    // >=  → min-width
+    var gte = cond.match(/^width\s*>=\s*(\d+)px$/);
+    if (gte) {
+      return "@media (min-width: " + gte[1] + "px)";
+    }
+
+    // >  → min-width (value + 1)
+    var gt = cond.match(/^width\s*>\s*(\d+)px$/);
+    if (gt) {
+      var v = parseInt(gt[1], 10) + 1;
+      return "@media (min-width: " + v + "px)";
+    }
+
+    // <=  → max-width
+    var lte = cond.match(/^width\s*<=\s*(\d+)px$/);
+    if (lte) {
+      return "@media (max-width: " + lte[1] + "px)";
+    }
+
+    // <  → max-width (value - 1)
+    var lt = cond.match(/^width\s*<\s*(\d+)px$/);
+    if (lt) {
+      var v2 = parseInt(lt[1], 10) - 1;
+      return "@media (max-width: " + v2 + "px)";
+    }
+
+    // If it’s already classic syntax or something else, leave it alone
+    return q;
+  }
+
   // ------------------------------
   // Flattening traversal
   // ------------------------------
@@ -219,7 +298,7 @@
         collectFlatRules(node.children[i], selectors, mediaSelector, out);
       }
     } else if (node.type === "media") {
-      var newMedia = node.selector; // e.g. "@media (width >= 992px)"
+      var newMedia = normalizeMediaQuery(node.selector); // e.g. "@media (min-width: 992px)"
 
       if (node.declarations.length) {
         out.push({
