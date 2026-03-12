@@ -302,7 +302,7 @@
 
     /** @type {Object<string, CSSNode[]>} */
     const byMedia = {};
-    rules.forEach(function (r) {
+    rules.forEach(r => {
       var key = r.media || "__no_media__";
       if (!byMedia[key]) byMedia[key] = [];
       byMedia[key].push(r);
