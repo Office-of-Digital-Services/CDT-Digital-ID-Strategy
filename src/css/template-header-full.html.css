@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 body {
   margin: 0;
   padding: 0;
@@ -45,6 +46,7 @@ div.template-header-full {
     padding: 0 !important;
     margin: -1px !important;
     overflow: hidden !important;
+    /* stylelint-disable-next-line property-no-deprecated */
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
     border: 0 !important;
@@ -71,12 +73,15 @@ div.template-header-full {
       @media (width >= 576px) {
         max-width: 540px;
       }
+
       @media (width >= 768px) {
         max-width: 720px;
       }
+
       @media (width >= 992px) {
         max-width: 960px;
       }
+
       @media (width >= 1200px) {
         max-width: 1176px;
       }
@@ -298,6 +303,7 @@ div.template-header-full {
               }
 
               > span.template-header-full__3-logo-text-state {
+                /* stylelint-disable-next-line number-max-precision */
                 font-size: 0.78125rem;
 
                 @media (width >= 786px) {
@@ -324,6 +330,7 @@ div.template-header-full {
         @media (width >= 992px) {
           display: none;
         }
+
         > summary {
           &::-webkit-details-marker {
             display: none; /* works in modern Safari, Chrome, Edge */
