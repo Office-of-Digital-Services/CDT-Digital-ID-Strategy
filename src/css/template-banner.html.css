@@ -179,26 +179,25 @@ div.template-banner__component {
           background: #f2c45a;
           color: #3b3a48;
           border: none;
-        }
 
-        > .template-banner__action:hover,
-        > .template-banner__action:focus {
-          background: #f5ce73;
-          color: #000;
-          box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+          &:hover,
+          &:focus {
+            background: #f5ce73;
+            color: #000;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+          }
         }
 
         > .template-banner__action-secondary {
           background-color: #046b99;
           color: #fff;
           border: 1px solid #fff;
-        }
 
-        > .template-banner__action-secondary:hover,
-        > .template-banner__action-secondary:focus {
-          background-color: #035376;
-          color: #fff;
-          box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+          &:hover,
+          &:focus {
+            background-color: #035376;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+          }
         }
       }
     }
