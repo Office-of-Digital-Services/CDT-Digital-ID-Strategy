@@ -95,7 +95,7 @@ a.template-button-component__primary:hover,
 a.template-button-component__primary:focus {
   background-color: var(--color-p2-darker, #214a68);
   border-color: var(--color-p2-darker, #214a68);
-  box-shadow: 0 2px 4px rgba(0 0 0 / 50%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
 }
 
 button.template-button-component__primary:focus,
@@ -118,7 +118,7 @@ a.template-button-component__highlight:hover,
 a.template-button-component__highlight:focus {
   background-color: var(--color-p1-lighter, #fed478);
   border-color: var(--color-p1-lighter, #fed478);
-  box-shadow: 0 2px 4px rgba(0 0 0 / 50%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
   color: var(--gray-900, #3b3a48);
 }
 
@@ -142,7 +142,7 @@ a.template-button-component__standout:hover,
 a.template-button-component__standout:focus {
   background-color: var(--color-p3-darker, #232930);
   border-color: var(--color-p3-darker, #232930);
-  box-shadow: 0 2px 4px rgba(0 0 0 / 50%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
   color: #fff;
 }
 
@@ -167,7 +167,7 @@ a.template-button-component__outline-primary:focus {
   color: var(--color-p2-darker, #214a68);
   background-color: var(--white, #fff);
   border-color: var(--color-p2-darker, #214a68);
-  box-shadow: 0 2px 4px rgba(0 0 0 / 50%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
 }
 
 button.template-button-component__outline-primary:focus,
@@ -191,7 +191,7 @@ a.template-button-component__outline-highlight:focus {
   color: var(--black, #000);
   border-color: var(--color-p1-lighter, #fed478);
   background-color: transparent;
-  box-shadow: 0 2px 4px rgba(0 0 0 / 50%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
 }
 
 button.template-button-component__outline-highlight:focus,
@@ -215,7 +215,7 @@ a.template-button-component__outline-standout:focus {
   color: var(--color-p3-darker, #242830);
   background-color: var(--white, #fff);
   border-color: var(--color-p3-darker, #242830);
-  box-shadow: 0 2px 4px rgba(0 0 0 / 50%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
 }
 
 button.template-button-component__outline-standout:focus,
@@ -239,7 +239,7 @@ a.template-button-component__default:focus {
   color: var(--black, #000);
   background-color: var(--gray-75, #f8f9fa);
   border-color: var(--black, #000);
-  box-shadow: 0 2px 4px rgba(0 0 0 / 50%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
 }
 
 button.template-button-component__default:focus,
