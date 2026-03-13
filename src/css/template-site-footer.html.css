@@ -33,9 +33,11 @@ div.template-site-footer__component {
     @media (width >= 576px) {
       max-width: 540px;
     }
+
     @media (width >= 768px) {
       max-width: 720px;
     }
+
     @media (width >= 992px) {
       max-width: 960px;
       flex-direction: row;
@@ -84,18 +86,18 @@ div.template-site-footer__component {
     background-color: #ededef;
     color: #3b3a48;
 
-    > div.template-site-footer__content
-      > div.template-site-footer__column
-      .template-site-footer__heading {
-      border-color: #323a45;
-    }
+    > div.template-site-footer__content > div.template-site-footer__column {
+      > h2.template-site-footer__heading {
+        border-color: #323a45;
+      }
 
-    > div.template-site-footer__content > div.template-site-footer__column a {
-      color: #3b3a48;
+      > a {
+        color: #3b3a48;
 
-      &:hover,
-      &:focus {
-        color: #000;
+        &:hover,
+        &:focus {
+          color: #000;
+        }
       }
     }
   }

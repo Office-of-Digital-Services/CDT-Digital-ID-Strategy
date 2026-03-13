@@ -42,6 +42,7 @@ footer.cagov-footer {
     padding: 0 !important;
     margin: -1px !important;
     overflow: hidden !important;
+    /* stylelint-disable-next-line property-no-deprecated */
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
     border: 0 !important;
@@ -65,12 +66,15 @@ footer.cagov-footer {
     @media (width >= 576px) {
       max-width: 540px;
     }
+
     @media (width >= 768px) {
       max-width: 720px;
     }
+
     @media (width >= 992px) {
       max-width: 960px;
     }
+
     @media (width >= 1200px) {
       max-width: 1176px;
     }
