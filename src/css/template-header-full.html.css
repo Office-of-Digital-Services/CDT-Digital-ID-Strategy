@@ -133,53 +133,55 @@ div.template-header-full {
         }
       }
 
-      > details.template-header-full_official-button,
-      > details.template-header-full__3-menu-button {
-        > summary {
-          list-style: none;
-          text-decoration: underline;
-          cursor: pointer;
-          position: relative;
-
-          &::after {
-            margin-left: 0.5rem;
-            content: "";
-            display: inline-block;
-            text-decoration: none;
+      > details {
+        &.template-header-full_official-button,
+        &.template-header-full__3-menu-button {
+          > summary {
+            list-style: none;
+            text-decoration: underline;
+            cursor: pointer;
             position: relative;
-            top: -2px;
-            width: 0.4rem;
-            height: 0.4rem;
-            border-top: 1px solid #000;
-            border-left: 1px solid #000;
-            transform: rotate(225deg);
-            transition: 200ms;
-            vertical-align: middle;
-          }
-        }
 
-        + div {
-          display: none;
-          width: 100%;
-          padding-top: 0.5rem;
-          padding-bottom: 0.5rem;
-          line-height: 1.5;
-          font-size: 0.875rem;
-          order: 0;
-
-          @media (width >= 436px) {
-            order: 1;
-          }
-        }
-
-        &[open] {
-          > summary::after {
-            transform: rotate(45deg);
-            top: 2px;
+            &::after {
+              margin-left: 0.5rem;
+              content: "";
+              display: inline-block;
+              text-decoration: none;
+              position: relative;
+              top: -2px;
+              width: 0.4rem;
+              height: 0.4rem;
+              border-top: 1px solid #000;
+              border-left: 1px solid #000;
+              transform: rotate(225deg);
+              transition: 200ms;
+              vertical-align: middle;
+            }
           }
 
           + div {
-            display: block;
+            display: none;
+            width: 100%;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            line-height: 1.5;
+            font-size: 0.875rem;
+            order: 0;
+
+            @media (width >= 436px) {
+              order: 1;
+            }
+          }
+
+          &[open] {
+            > summary::after {
+              transform: rotate(45deg);
+              top: 2px;
+            }
+
+            + div {
+              display: block;
+            }
           }
         }
       }
