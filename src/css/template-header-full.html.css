@@ -267,7 +267,7 @@ div.template-header-full {
 
         > summary {
           &::-webkit-details-marker {
-            display: none; /* works in modern Safari, Chrome, Edge */
+            display: none; /* Required for Safari 13.1 */
           }
 
           list-style: none;
