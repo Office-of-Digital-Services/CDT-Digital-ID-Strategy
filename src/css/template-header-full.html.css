@@ -193,7 +193,7 @@ div.template-header-full {
               min-height: 5rem;
               align-items: center;
 
-              /* SVG wrapper */
+              /* BEGIN Site branding logo */
               > div:first-child {
                 > svg {
                   height: 4rem;
@@ -206,7 +206,7 @@ div.template-header-full {
                   }
                 }
 
-                /* Branding Text after SVG */
+                /* BEGIN Site branding text */
                 + div {
                   display: flex;
                   flex-direction: column;
@@ -234,8 +234,8 @@ div.template-header-full {
                       }
                     }
                   }
-                }
-              }
+                } /* END Site branding text */
+              } /* END Site branding logo */
             }
           }
         } /* END Site branding */
