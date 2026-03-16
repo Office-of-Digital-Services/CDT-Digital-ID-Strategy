@@ -60,13 +60,17 @@ div.template-header-full {
     padding: 0;
   }
 
-  /* Both bars (branding and utility) */
+  /* Both header bars (branding and utility top bar) */
   > div > div {
     width: 100%;
     padding-right: 12px;
     padding-left: 12px;
     margin-right: auto;
     margin-left: auto;
+    display: flex;
+    flex-flow: column wrap;
+    flex-direction: row;
+    align-items: center;
 
     @media (width >= 576px) {
       max-width: 540px;
@@ -92,17 +96,9 @@ div.template-header-full {
 
     /* top bar */
     > div {
-      display: flex;
       gap: 0.5rem;
-      flex-flow: column wrap;
-      align-items: center;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
-
-      @media (width >= 300px) {
-        flex-direction: row;
-        align-items: center;
-      }
 
       /*  Official logo in the left side utility bar */
       > div:first-child {
@@ -177,9 +173,7 @@ div.template-header-full {
 
       /* Branding and main menu container */
       > div {
-        display: flex;
         justify-content: flex-start;
-        flex-flow: column wrap;
 
         /* Icon and branding styles */
         > div:first-child {
