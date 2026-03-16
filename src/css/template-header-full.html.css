@@ -128,7 +128,7 @@ div.template-header-full {
           }
         } /* END Official website text */
 
-        /* Optional Right side links */
+        /* BEGIN Optional links section */
         + div {
           display: flex;
           flex-direction: column;
@@ -163,19 +163,19 @@ div.template-header-full {
               color: #000;
             }
           }
-        }
+        } /* END Optional links section */
       } /* END CA Official State Branding */
     } /* END utility bar inside */
 
-    /* bottom bar/branding styles */
+    /* BEGIN Menu bar */
     + div {
       border-bottom: 2px solid #e2e2e3;
 
-      /* Branding and main menu container */
+      /* BEGIN Menu bar inside */
       > div {
         justify-content: flex-start;
 
-        /* Icon and branding styles */
+        /* BEGIN Site branding */
         > div:first-child {
           flex-grow: 1;
           flex-shrink: 0;
@@ -238,9 +238,9 @@ div.template-header-full {
               }
             }
           }
-        }
+        } /* END Site branding */
 
-        /* Main menu styles */
+        /* BEGIN Main menu button */
         > details {
           @media (width >= 992px) {
             display: none;
@@ -310,7 +310,7 @@ div.template-header-full {
             }
           }
 
-          /* Main menu container styles */
+          /* BEGIN Main menu content */
           + div {
             display: none;
             width: 100%;
@@ -394,9 +394,9 @@ div.template-header-full {
                 }
               }
             }
-          }
-        }
-      }
-    }
+          } /* END Main menu content */
+        } /* END Main menu button */
+      } /* END Menu bar inside */
+    } /* END Menu bar */
   } /* END utility bar */
 } /* END template-header-full */
