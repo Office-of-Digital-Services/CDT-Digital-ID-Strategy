@@ -60,12 +60,8 @@ div.template-header-full {
     padding: 0;
   }
 
+  /* Both bars (branding and utility) */
   > div > div {
-    /* 
-    bottom-bar -> branding 
-    utility -> top-bar
-    */
-
     width: 100%;
     padding-right: 12px;
     padding-left: 12px;
@@ -89,14 +85,13 @@ div.template-header-full {
     }
   }
 
-  /* cagov official styles */
+  /* utility bar */
   > div:first-child {
-    /* utility bar */
     background-color: #f5f9fa;
     min-height: 42px;
 
+    /* top bar */
     > div {
-      /* top bar */
       display: flex;
       gap: 0.5rem;
       flex-flow: column wrap;
@@ -110,16 +105,16 @@ div.template-header-full {
         align-items: center;
       }
 
+      /*  Official logo in the left side utility bar */
       > div:first-child {
-        /*  Official logo in the left side utility bar */
         flex-shrink: 0;
         flex-grow: 1;
         display: flex;
         align-items: center;
         align-self: start;
 
+        /* CA Logo link */
         > a {
-          /* CA Logo link */
           margin-right: 12px;
 
           > svg {
@@ -127,8 +122,8 @@ div.template-header-full {
           }
         }
 
+        /* "Official website of the State of California" text */
         > div {
-          /* "Official website of the State of California" text */
           font-size: 0.95rem;
 
           > span {
@@ -138,8 +133,8 @@ div.template-header-full {
           }
         }
 
+        /* Optional Right side links */
         + div {
-          /* Optional Right side links */
           display: flex;
           flex-direction: column;
           gap: 0.2rem;
@@ -154,8 +149,6 @@ div.template-header-full {
           }
 
           > a {
-            /* Optional Right side link */
-
             color: #3b3a48;
             font-size: 0.95rem;
             display: flex;
@@ -181,7 +174,7 @@ div.template-header-full {
   }
 
   /* bottom bar/branding styles */
-  > div:last-child {
+  + div {
     border-bottom: 2px solid #e2e2e3;
 
     /* Branding and main menu container */
@@ -215,42 +208,44 @@ div.template-header-full {
             align-items: center;
 
             /* SVG wrapper */
-            > div:first-child > svg {
-              height: 4rem;
-              display: block;
-              align-self: flex-start;
-              padding: 0.5rem 0;
-
-              @media (width >= 786px) {
-                height: 5rem;
-              }
-            }
-
-            /* Branding Text */
-            > div:last-child {
-              display: flex;
-              flex-direction: column;
-
-              & span {
+            > div:first-child {
+              > svg {
+                height: 4rem;
                 display: block;
-              }
-
-              /* State of California text styles */
-              > span:first-child {
-                font-size: 0.7813rem;
+                align-self: flex-start;
+                padding: 0.5rem 0;
 
                 @media (width >= 786px) {
-                  font-size: 0.85rem;
+                  height: 5rem;
+                }
+              }
+
+              /* Branding Text after SVG */
+              + div {
+                display: flex;
+                flex-direction: column;
+
+                & span {
+                  display: block;
                 }
 
-                /* Department/Project text styles */
-                + span {
-                  font-size: 1rem;
-                  font-weight: 700;
-                  line-height: 1.2;
+                /* State of California text styles */
+                > span:first-child {
+                  font-size: 0.7813rem;
 
                   @media (width >= 786px) {
-                    font-size: 1.75rem;
+                    font-size: 0.85rem;
+                  }
+
+                  /* Department/Project text styles */
+                  + span {
+                    font-size: 1rem;
+                    font-weight: 700;
+                    line-height: 1.2;
+
+                    @media (width >= 786px) {
+                      font-size: 1.75rem;
+                    }
                   }
                 }
               }
@@ -276,7 +271,7 @@ div.template-header-full {
           left: 0.5rem;
 
           /* Hamburger menu */
-          > span:last-child {
+          > span[aria-hidden="true"] {
             position: relative;
             display: block;
             width: 34px;
@@ -314,7 +309,7 @@ div.template-header-full {
           }
 
           /* Hamburger menu */
-          > summary > span:last-child {
+          > summary > span[aria-hidden="true"] {
             background-color: #fff;
 
             &::before {
