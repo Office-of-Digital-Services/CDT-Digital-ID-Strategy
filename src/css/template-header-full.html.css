@@ -60,40 +60,43 @@ div.template-header-full {
     padding: 0;
   }
 
-  > div.template-header-full__1-bottom-bar,
-  > div.template-header-full__1-utility {
-    > div.template-header-full__2-top-bar,
-    > div.template-header-full__2-branding {
-      width: 100%;
-      padding-right: 12px;
-      padding-left: 12px;
-      margin-right: auto;
-      margin-left: auto;
+  > div > div {
+    /* 
+    bottom-bar -> branding 
+    utility -> top-bar
+    */
 
-      @media (width >= 576px) {
-        max-width: 540px;
-      }
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: auto;
+    margin-left: auto;
 
-      @media (width >= 768px) {
-        max-width: 720px;
-      }
+    @media (width >= 576px) {
+      max-width: 540px;
+    }
 
-      @media (width >= 992px) {
-        max-width: 960px;
-      }
+    @media (width >= 768px) {
+      max-width: 720px;
+    }
 
-      @media (width >= 1200px) {
-        max-width: 1176px;
-      }
+    @media (width >= 992px) {
+      max-width: 960px;
+    }
+
+    @media (width >= 1200px) {
+      max-width: 1176px;
     }
   }
 
   /* cagov official styles */
-  > div.template-header-full__1-utility {
+  > div:first-child {
+    /* utility bar */
     background-color: #f5f9fa;
     min-height: 42px;
 
-    > div.template-header-full__2-top-bar {
+    > div {
+      /* top bar */
       display: flex;
       gap: 0.5rem;
       flex-flow: column wrap;
@@ -107,7 +110,8 @@ div.template-header-full {
         align-items: center;
       }
 
-      > div.template-header-full__3-logo {
+      > div:first-child {
+        /*  Official logo in the left side utility bar */
         flex-shrink: 0;
         flex-grow: 1;
         display: flex;
@@ -115,6 +119,7 @@ div.template-header-full {
         align-self: start;
 
         > a {
+          /* CA Logo link */
           margin-right: 12px;
 
           > svg {
@@ -122,10 +127,11 @@ div.template-header-full {
           }
         }
 
-        > div.template-header-full__3-official {
+        > div {
+          /* "Official website of the State of California" text */
           font-size: 0.95rem;
 
-          > span.template-header-full__3-desktop-only {
+          > span {
             @media (width <= 767px) {
               display: none;
             }
@@ -133,60 +139,8 @@ div.template-header-full {
         }
       }
 
-      > details {
-        &.template-header-full_official-button,
-        &.template-header-full__3-menu-button {
-          > summary {
-            list-style: none;
-            text-decoration: underline;
-            cursor: pointer;
-            position: relative;
-
-            &::after {
-              margin-left: 0.5rem;
-              content: "";
-              display: inline-block;
-              text-decoration: none;
-              position: relative;
-              top: -2px;
-              width: 0.4rem;
-              height: 0.4rem;
-              border-top: 1px solid #000;
-              border-left: 1px solid #000;
-              transform: rotate(225deg);
-              transition: 200ms;
-              vertical-align: middle;
-            }
-          }
-
-          + div {
-            display: none;
-            width: 100%;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            line-height: 1.5;
-            font-size: 0.875rem;
-            order: 0;
-
-            @media (width >= 436px) {
-              order: 1;
-            }
-          }
-
-          &[open] {
-            > summary::after {
-              transform: rotate(45deg);
-              top: 2px;
-            }
-
-            + div {
-              display: block;
-            }
-          }
-        }
-      }
-
-      > div.template-header-full__3-links {
+      > div:nth-child(2) {
+        /* Optional Right side links */
         display: flex;
         flex-direction: column;
         gap: 0.2rem;
@@ -201,6 +155,8 @@ div.template-header-full {
         }
 
         > a {
+          /* Optional Right side link */
+
           color: #3b3a48;
           font-size: 0.95rem;
           display: flex;
@@ -219,37 +175,6 @@ div.template-header-full {
           &:focus {
             color: #000;
           }
-        }
-      }
-
-      > div.template-header-full__3-utility-menu > nav > ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 0;
-        position: relative;
-        left: 0.35rem;
-        font-size: 0.95rem;
-
-        > li > a {
-          padding: 0.35rem 0;
-        }
-
-        @media (width >= 436px) {
-          align-items: flex-end;
-          justify-content: flex-end;
-
-          > li > a {
-            padding: 0.35rem;
-          }
-        }
-
-        @media (width >= 540px) {
-          flex-direction: row;
-          gap: 1.5rem;
         }
       }
     }
