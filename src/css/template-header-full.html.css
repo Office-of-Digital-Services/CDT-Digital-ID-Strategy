@@ -4,7 +4,7 @@ body {
   padding: 0;
 }
 
-/* cagov shell styles */
+/* BEGIN template-header-full */
 div.template-header-full {
   box-sizing: border-box;
   margin: 0;
@@ -89,18 +89,18 @@ div.template-header-full {
     }
   }
 
-  /* utility bar */
+  /* BEGIN utility bar */
   > div:first-child {
     background-color: #f5f9fa;
     min-height: 42px;
 
-    /* top bar */
+    /* BEGIN utility bar inside */
     > div {
       gap: 0.5rem;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
 
-      /*  Official logo in the left side utility bar */
+      /* BEGIN CA Official State Branding */
       > div:first-child {
         flex-shrink: 0;
         flex-grow: 1;
@@ -108,16 +108,16 @@ div.template-header-full {
         align-items: center;
         align-self: start;
 
-        /* CA Logo link */
+        /* BEGIN www.ca.gov logo link */
         > a {
           margin-right: 12px;
 
           > svg {
             width: 45px;
           }
-        }
+        } /* END www.ca.gov logo link */
 
-        /* "Official website of the State of California" text */
+        /* BEGIN Official website text */
         > div {
           font-size: 0.95rem;
 
@@ -126,7 +126,7 @@ div.template-header-full {
               display: none;
             }
           }
-        }
+        } /* END Official website text */
 
         /* Optional Right side links */
         + div {
@@ -164,8 +164,8 @@ div.template-header-full {
             }
           }
         }
-      }
-    }
+      } /* END CA Official State Branding */
+    } /* END utility bar inside */
 
     /* bottom bar/branding styles */
     + div {
@@ -398,5 +398,5 @@ div.template-header-full {
         }
       }
     }
-  }
-}
+  } /* END utility bar */
+} /* END template-header-full */
