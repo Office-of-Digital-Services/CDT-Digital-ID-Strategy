@@ -226,7 +226,8 @@ div.template-header-full {
               }
             }
 
-            > div.template-header-full__3-logo-text {
+            /* Branding Text */
+            > div:last-child {
               display: flex;
               flex-direction: column;
 
@@ -234,22 +235,23 @@ div.template-header-full {
                 display: block;
               }
 
-              > span.template-header-full__3-logo-text-state {
-                /* stylelint-disable-next-line number-max-precision */
-                font-size: 0.78125rem;
+              /* State of California text styles */
+              > span:first-child {
+                font-size: 0.7813rem;
 
                 @media (width >= 786px) {
                   font-size: 0.85rem;
                 }
-              }
 
-              > span.template-header-full__3-logo-text-dept {
-                font-size: 1rem;
-                font-weight: 700;
-                line-height: 1.2;
+                /* Department/Project text styles */
+                + span {
+                  font-size: 1rem;
+                  font-weight: 700;
+                  line-height: 1.2;
 
-                @media (width >= 786px) {
-                  font-size: 1.75rem;
+                  @media (width >= 786px) {
+                    font-size: 1.75rem;
+                  }
                 }
               }
             }
