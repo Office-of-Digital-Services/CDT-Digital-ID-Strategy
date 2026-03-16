@@ -60,7 +60,7 @@ div.template-header-full {
     padding: 0;
   }
 
-  /* Both header bars (branding and utility top bar) */
+  /* BEGIN SHARED for both inside bars */
   > div > div {
     width: 100%;
     padding-right: 12px;
@@ -87,7 +87,7 @@ div.template-header-full {
     @media (width >= 1200px) {
       max-width: 1176px;
     }
-  }
+  } /* END SHARED for both inside bars */
 
   /* BEGIN utility bar */
   > div:first-child {
