@@ -1,9 +1,13 @@
 <header>
+  <!-- BEGIN template-header-full -->
   <div class="template-header-full">
-    <div class="template-header-full__1-utility">
-      <div class="template-header-full__2-top-bar">
-        <!-- end CA.gov Logo -->
-        <div class="template-header-full__3-logo">
+    <!-- BEGIN utility bar -->
+    <div>
+      <!-- BEGIN utility bar inside -->
+      <div>
+        <!-- BEGIN CA Official State Branding -->
+        <div>
+          <!-- BEGIN www.ca.gov logo link -->
           <a href="https://www.ca.gov">
             <span class="template-sr-only" lang="en">CA.gov website</span>
             <svg
@@ -28,43 +32,42 @@
                 d="M150 299c32 0 55-6 76-18l5-11c-7 1-14 2-20 2h-3l-2-1c-5-1-12-5-19-11-3-2-7-6-11-11-8 2-16 3-26 3-42 0-74-20-91-51H8c19 60 72 98 142 98z" />
             </svg>
           </a>
+          <!-- END www.ca.gov logo link -->
 
-          <div class="template-header-full__3-official">
+          <!-- BEGIN Official website text -->
+          <div>
             {% if lang == "es" %}
-            <span class="template-header-full__3-desktop-only"
-              >Sitio web oficial del</span
-            >
+            <span>Sitio web oficial del</span>
             Estado de California {% else %}
-            <span class="template-header-full__3-desktop-only"
-              >Official website of the</span
-            >
+            <span>Official website of the</span>
             State of California {% endif %}
           </div>
+          <!-- END Official website text -->
         </div>
+        <!-- END CA Official State Branding -->
 
-        <div class="template-header-full__3-links">
+        <!-- BEGIN Optional links section -->
+        <div>
           <a href="{{ alternatelink }}"
             >{% if lang == "es" %} English {% else %} Español {% endif %}
           </a>
         </div>
-
-        <!--end cagov collapsible menu content-->
-        <!--end template-menu-->
+        <!-- END Optional links section -->
       </div>
-      <!--end template-top-bar -->
+      <!-- END utility bar inside -->
     </div>
-    <!--end template-header-full__1-utility-->
+    <!-- END utility bar -->
 
-    <!-- site branding -->
-    <div class="template-header-full__1-bottom-bar">
-      <div class="template-header-full__2-branding">
-        <!--Site logo-->
-        <div class="template-header-full__3-logo">
+    <!-- BEGIN Menu bar -->
+    <div>
+      <!-- BEGIN Menu bar inside -->
+      <div>
+        <!--BEGIN Site branding-->
+        <div>
           <a
             href="/"
-            class="template-header-full__3-logo-link"
             aria-label="Go to the California State Digital ID Framework homepage">
-            <div class="template-header-full__3-logo-assets">
+            <div>
               <!-- SVG Wrapper -->
               <div>
                 <svg
@@ -79,51 +82,38 @@
                     d="M374 444s-117-117-120-120c-9-13-28-16-44-3-6 6-35 32-38 38-16 19-16 32-3 47c3 3 146 149 158 161s32 19 51 19s35-13 51-28c3-9 301-329 301-329c13-16 9-38 3-51-3-6-28-25-32-28-19-16-38-16-51 0-9 13-275 294-275 294z" />
                 </svg>
               </div>
-              <div class="template-header-full__3-logo-text">
+              <div>
                 {% if lang == "es" %}
-                <span class="template-header-full__3-logo-text-state"
-                  >California</span
-                >
-                <span class="template-header-full__3-logo-text-dept"
-                  >Marco de Identidad Digital</span
-                >
+                <span>California</span>
+                <span>Marco de Identidad Digital</span>
                 {% else %}
-                <span class="template-header-full__3-logo-text-state"
-                  >State of California</span
-                >
-                <span class="template-header-full__3-logo-text-dept"
-                  >Digital ID Framework</span
-                >
+                <span>State of California</span>
+                <span>Digital ID Framework</span>
                 {% endif %}
               </div>
             </div>
           </a>
         </div>
+        <!--END Site branding-->
 
-        <!--main menu-->
-        <details
-          class="template-header-full__3-main-menu-button"
-          name="template-header-full__buttongroup">
+        <!--BEGIN Main menu button-->
+        <details>
           {% if lang == "es" %}
           <summary lang="es">
-            <span class="template-header-full__3-main-menu-label"
-              ><span class="template-sr-only">Menú principal</span></span
-            ><span
-              aria-hidden="true"
-              class="template-header-full__4-main-menu-hamburger"></span>
+            <span><span class="template-sr-only">Menú principal</span></span
+            ><span aria-hidden="true"></span>
           </summary>
           {% else %}
           <summary lang="en">
-            <span class="template-header-full__3-main-menu-label"
-              ><span class="template-sr-only">Main menu</span></span
-            ><span
-              aria-hidden="true"
-              class="template-header-full__4-main-menu-hamburger"></span>
+            <span><span class="template-sr-only">Main menu</span></span
+            ><span aria-hidden="true"></span>
           </summary>
           {% endif %}
         </details>
+        <!--END Main menu button-->
 
-        <div class="template-header-full__3-main-menu">
+        <!--BEGIN Main menu content-->
+        <div>
           <nav aria-label="Main navigation">
             <ul>
               {% if lang == "es" %}
@@ -156,10 +146,11 @@
             </ul>
           </nav>
         </div>
+        <!--END Main menu content-->
       </div>
-      <!--end template-header-full__2-branding-->
+      <!--END Menu bar inside -->
     </div>
-    <!--end template-header-full__1-bottom-bar-->
+    <!-- END Menu bar -->
   </div>
-  <!--end template-header-full-->
+  <!-- END template-header-full -->
 </header>
