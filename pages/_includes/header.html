@@ -1,13 +1,13 @@
 <header>
-  <!-- BEGIN template-header-full -->
+  <!-- #region template-header-full -->
   <div class="template-header-full">
-    <!-- BEGIN utility bar -->
+    <!-- #region utility bar -->
     <div>
-      <!-- BEGIN utility bar inside -->
+      <!-- #region utility bar inside -->
       <div>
-        <!-- BEGIN CA Official State Branding -->
+        <!-- #region CA Official State Branding -->
         <div>
-          <!-- BEGIN www.ca.gov logo link -->
+          <!-- #region www.ca.gov logo link -->
           <a href="https://www.ca.gov">
             <span class="template-sr-only" lang="en">CA.gov website</span>
             <svg
@@ -32,9 +32,9 @@
                 d="M150 299c32 0 55-6 76-18l5-11c-7 1-14 2-20 2h-3l-2-1c-5-1-12-5-19-11-3-2-7-6-11-11-8 2-16 3-26 3-42 0-74-20-91-51H8c19 60 72 98 142 98z" />
             </svg>
           </a>
-          <!-- END www.ca.gov logo link -->
+          <!-- #endregion www.ca.gov logo link -->
 
-          <!-- BEGIN Official website text -->
+          <!-- #region Official website text -->
           <div>
             {% if lang == "es" %}
             <span>Sitio web oficial del</span>
@@ -42,33 +42,32 @@
             <span>Official website of the</span>
             State of California {% endif %}
           </div>
-          <!-- END Official website text -->
+          <!-- #endregion Official website text -->
         </div>
-        <!-- END CA Official State Branding -->
+        <!-- #endregion CA Official State Branding -->
 
-        <!-- BEGIN Optional links section -->
+        <!-- #region Optional links section -->
         <div>
           <a href="{{ alternatelink }}"
             >{% if lang == "es" %} English {% else %} Español {% endif %}
           </a>
         </div>
-        <!-- END Optional links section -->
+        <!-- #endregion Optional links section -->
       </div>
-      <!-- END utility bar inside -->
+      <!-- #endregion utility bar inside -->
     </div>
-    <!-- END utility bar -->
-
-    <!-- BEGIN Menu bar -->
+    <!-- #endregion utility bar -->
+    <!-- #region Menu bar -->
     <div>
-      <!-- BEGIN Menu bar inside -->
+      <!-- #region Menu bar inside -->
       <div>
-        <!-- BEGIN Site branding -->
+        <!-- #region Site branding -->
         <div>
           <a
             href="/"
             aria-label="Go to the California State Digital ID Framework homepage">
             <div>
-              <!-- BEGIN Site branding logo -->
+              <!-- #region Site branding logo -->
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +81,8 @@
                     d="M374 444s-117-117-120-120c-9-13-28-16-44-3-6 6-35 32-38 38-16 19-16 32-3 47c3 3 146 149 158 161s32 19 51 19s35-13 51-28c3-9 301-329 301-329c13-16 9-38 3-51-3-6-28-25-32-28-19-16-38-16-51 0-9 13-275 294-275 294z" />
                 </svg>
               </div>
-              <!-- END Site branding logo -->
-              <!-- BEGIN Site branding text -->
+              <!-- #endregion Site branding logo -->
+              <!-- #region Site branding text -->
               <div>
                 {% if lang == "es" %}
                 <span>California</span>
@@ -93,13 +92,12 @@
                 <span>Digital ID Framework</span>
                 {% endif %}
               </div>
-              <!-- END Site branding text -->
+              <!-- #endregion Site branding text -->
             </div>
           </a>
         </div>
-        <!-- END Site branding -->
-
-        <!-- BEGIN Main menu button -->
+        <!-- #endregion Site branding -->
+        <!-- #region Main menu button -->
         <details>
           {% if lang == "es" %}
           <summary lang="es">
@@ -113,9 +111,8 @@
           </summary>
           {% endif %}
         </details>
-        <!-- END Main menu button -->
-
-        <!-- BEGIN Main menu content -->
+        <!-- #endregion Main menu button -->
+        <!-- #region Main menu content -->
         <div>
           <nav aria-label="Main navigation">
             <ul>
@@ -149,11 +146,11 @@
             </ul>
           </nav>
         </div>
-        <!-- END Main menu content -->
+        <!-- #endregion Main menu content -->
       </div>
-      <!-- END Menu bar inside -->
+      <!-- #endregion Menu bar inside -->
     </div>
-    <!-- END Menu bar -->
+    <!-- #endregion Menu bar -->
   </div>
-  <!-- END template-header-full -->
+  <!-- #endregion template-header-full -->
 </header>
