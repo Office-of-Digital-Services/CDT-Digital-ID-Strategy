@@ -283,10 +283,6 @@
     }
   }
 
-  // ------------------------------
-  // Flattened emitter
-  // ------------------------------
-
   /**
    * Emits flattened CSS from flat rules.
    * @param {CSSNode[]} rules
@@ -294,33 +290,24 @@
   function emitFlatCSS(rules) {
     let css = "";
 
-    /** @type {Object<string, CSSNode[]>} */
-    const byMedia = {};
-    rules.forEach(r => {
-      var key = r.media || "__no_media__";
-      if (!byMedia[key]) byMedia[key] = [];
-      byMedia[key].push(r);
-    });
+    for (const rule of rules) {
+      const isMedia = !!rule.media;
 
-    const mediaKeys = Object.keys(byMedia);
-
-    for (const mediaKey of mediaKeys) {
-      const group = byMedia[mediaKey];
-      const isNoMedia = mediaKey === "__no_media__";
-
-      if (!isNoMedia) css += mediaKey + " {\n";
-
-      for (const rule of group) {
-        for (const sel of rule.selectors || []) {
-          css += sel + " {\n";
-          for (const decl of rule.declarations || []) {
-            css += decl + ";\n";
-          }
-          css += "}\n\n";
-        }
+      if (isMedia) {
+        css += rule.media + " {\n";
       }
 
-      if (!isNoMedia) css += "}\n\n";
+      for (const sel of rule.selectors || []) {
+        css += sel + " {\n";
+        for (const decl of rule.declarations || []) {
+          css += "\t" + decl + ";\n";
+        }
+        css += "}\n\n";
+      }
+
+      if (isMedia) {
+        css += "}\n\n";
+      }
     }
 
     return css;
@@ -341,9 +328,11 @@
    */
   function flattenCSS(cssText) {
     var ast = parseCSS(cssText);
+
     /** @type {CSSNode[]} */
     var rules = [];
     collectFlatRules(ast, [""], rules);
+
     return emitFlatCSS(rules);
   }
 
