@@ -1,6 +1,7 @@
 //@ts-check
 const { minify } = require("terser");
 const { PurgeCSS } = require("purgecss");
+const { transform } = require("lightningcss");
 
 /**
  * @typedef {import("./node_modules/@11ty/eleventy/src/defaultConfig.js").defaultConfig} EleventyDefaultConfig
@@ -22,17 +23,7 @@ module.exports = async function (
 
   eleventyConfig.addWatchTarget("./src");
 
-  /**
-   * @param {string} content
-   */
-  const minifyCSS = content =>
-    content
-      .replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/|[\r\n\t]+/g, "")
-      .replace(/ {2,}/g, " ")
-      .replace(/ ([{:}]) /g, "$1")
-      .replace(/([{:}]) /g, "$1")
-      .replace(/([;,]) /g, "$1")
-      .replace(/ !/g, "!");
+
 
   // PurgeCSS filter to extract only used CSS
   eleventyConfig.addFilter(
@@ -75,9 +66,19 @@ module.exports = async function (
      * @param {string} code
      * @param {(arg0: null, arg1: string) => void} callback
      */
-
     async (code, callback) => {
-      callback(null, minifyCSS(code));
+      try {
+        const { code: minifiedCode } = transform({
+          filename: "style.css",
+          code: Buffer.from(code),
+          minify: true,
+          sourceMap: false
+        });
+        callback(null, minifiedCode.toString());
+      } catch (err) {
+        console.error("Lightning CSS error:", err);
+        callback(null, code);
+      }
     }
   );
 

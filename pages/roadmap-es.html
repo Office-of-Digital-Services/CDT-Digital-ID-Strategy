@@ -9,8 +9,9 @@ lang: es
 
 <div id="main-content" class="main-content">
   <main>
-    <div class="template-page-header__component bg-understated-gradient">
-      <div class="template-page-header__content">
+    <div class="template-page-header" data-page-header-bg="understated-gradient">
+      <!-- Content Container -->
+      <div>
         <h1>Hoja de ruta</h1>
       </div>
     </div>
@@ -24,18 +25,20 @@ lang: es
       </p>
 
       <div class="col-lg-9 offset-lg-3">
-        <div class="template-progress-tracker__component">
-          <div class="template-progress-tracker__content">
-            <div class="template-progress-tracker__step">
-              <div
-                class="template-progress-tracker__timeline-dot dot-primary-full">
-                <span class="template-progress-tracker__dot-inner"></span>
+        <div class="template-progress-tracker">
+          <!-- Progress Tracker Content -->
+          <div>
+            <!-- Progress Tracker Step -->
+            <div>
+              <div data-progress-dot="primary-full">
+                <span></span>
               </div>
-              <div class="template-progress-tracker__step-content">
-                <h2 class="template-progress-tracker__heading">
+              <!-- Step Content -->
+              <div>
+                <h2>
                   Implementación de California Identity Gateway:
                 </h2>
-                <ul class="list-unstyled ml-4">
+                <ul class="ml-4" data-progress-list="unstyled">
                   <li class="m-b-sm">
                     Continuar ampliando la entrega de descuentos en tránsito
                     <ul>
@@ -74,15 +77,17 @@ lang: es
                 </ul>
               </div>
             </div>
-            <div class="template-progress-tracker__step">
-              <div class="template-progress-tracker__timeline-dot dot-primary">
-                <span class="template-progress-tracker__dot-inner"></span>
+            <!-- Progress Tracker Step -->
+            <div>
+              <div data-progress-dot="primary">
+                <span></span>
               </div>
-              <div class="template-progress-tracker__step-content">
-                <h2 class="template-progress-tracker__heading">
+              <!-- Step Content -->
+              <div>
+                <h2>
                   Desarrollo de políticas estatales:
                 </h2>
-                <ul class="list-unstyled ml-4">
+                <ul class="ml-4" data-progress-list="unstyled">
                   <li class="m-b-sm">
                     Finalizar el Marco de Identificación Digital
                     <ul>
@@ -109,15 +114,17 @@ lang: es
                 </ul>
               </div>
             </div>
-            <div class="template-progress-tracker__step step-border-gray">
-              <div class="template-progress-tracker__timeline-dot">
-                <span class="template-progress-tracker__dot-inner"></span>
+            <!-- Progress Tracker Step -->
+            <div data-progress-step-border="gray">
+              <div>
+                <span></span>
               </div>
-              <div class="template-progress-tracker__step-content">
-                <h2 class="template-progress-tracker__heading">
+              <!-- Step Content -->
+              <div>
+                <h2>
                   Desarrollo de credenciales digitales a nivel estatal:
                 </h2>
-                <ul class="list-unstyled ml-4">
+                <ul class="ml-4" data-progress-list="unstyled">
                   <li class="m-b-sm">
                     Establecer una guía de estilo y estándares mínimos
                     <ul>
@@ -145,9 +152,10 @@ lang: es
                 </ul>
               </div>
             </div>
-            <div class="template-progress-tracker__step border-transparent">
-              <div class="template-progress-tracker__timeline-dot dot-gray">
-                <span class="template-progress-tracker__dot-inner"></span>
+            <!-- Progress Tracker Step -->
+            <div data-progress-step-border="transparent">
+              <div data-progress-dot="gray">
+                <span></span>
               </div>
             </div>
           </div>

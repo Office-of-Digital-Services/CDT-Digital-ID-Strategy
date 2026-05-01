@@ -9,30 +9,39 @@ lang: es
 
 <div id="main-content" class="main-content">
   <main>
-    <div class="template-banner__component bg-primary-gradient">
-      <div class="template-banner__image-container">
+    <!-- 
+      Banner Root 
+      data-bg options: "understated", "primary", "primary-gradient", "standout"
+    -->
+    <div class="template-banner__component" data-bg="primary-gradient">
+      
+      <!-- Image Container -->
+      <div>
+        <!-- data-image options: "fade-left" -->
         <img
           src="/images/lightrail.png"
           alt="Ilustración de una mano sosteniendo una tarjeta de identificación cerca de un tren ligero"
-          class="image-fade-left" />
+          data-image="fade-left" />
       </div>
-      <div class="template-banner__content pt-lg-5 pb-lg-5">
-        <div class="template-banner__col-6 pb-lg-5">
-          <h1 class="template-banner__title font-weight-200 h2">
+      
+      <!-- Content Container -->
+      <div>
+        <!-- Content Column Wrapper -->
+        <div>
+          <!-- 
+            Heading 
+            data-font-weight options: "200", "400" 
+            data-h2 option: boolean (add data-h2 attribute without value to match h2 size)
+          -->
+          <h1 data-font-weight="200" data-h2>
             Acceso digital seguro y escalable para los Californianos
           </h1>
 
-          <div class="template-banner__actions">
-            <a
-              href="/CDT-Digital-ID-Framework-Strategy.pdf"
-              class="template-banner__action"
-              >Descargar PDF</a
-            >
-            <a
-              href="https://www.cdt.ca.gov/digitalID/"
-              class="template-banner__action-secondary"
-              >Proyecto de Identidad Digital</a
-            >
+          <!-- Actions Container -->
+          <div>
+            <!-- data-action options: "secondary" (default is primary action) -->
+            <a href="/CDT-Digital-ID-Framework-Strategy.pdf">Descargar PDF</a>
+            <a href="https://www.cdt.ca.gov/digitalID/" data-action="secondary">Proyecto de Identidad Digital</a>
           </div>
         </div>
       </div>
@@ -95,11 +104,7 @@ lang: es
         <li>Apertura y transparencia</li>
       </ul>
       <p>
-        <a
-          href="primary-elements-es.html"
-          class="template-button-component__outline-primary"
-          >Descripción general de los elementos del marco</a
-        >
+        <a href="primary-elements-es.html" data-btn-bg="primary" data-btn-variant="outline">Descripción general de los elementos del marco</a>
       </p>
     </div>
 
