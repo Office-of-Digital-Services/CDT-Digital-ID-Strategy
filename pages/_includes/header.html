@@ -45,9 +45,11 @@
 
         <!-- START > div:nth-of-type(2) (Links) -->
         <div>
-          <a href="{{ alternatelink }}"
-            >{% if lang == "es" %} English {% else %} Español {% endif %}
-          </a>
+          {% if lang == "es" -%}
+          <a href="{{ alternatelink }}" hreflang="en" lang="en">English</a>
+          {%- else -%}
+          <a href="{{ alternatelink }}" hreflang="es" lang="es">Español</a>
+          {%- endif %}
         </div>
         <!-- END > div:nth-of-type(2) (Links) -->
       </div>
