@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="{{ lang }}">
+  <head>
+    <title>{{ title }} | CA.gov</title>
+    <meta charset="utf-8" />
+    <meta name="Author" content="State of California" />
+    <meta name="Description" content="{{ description }}" />
+    {%- if noindex %}
+    <meta name="robots" content="noindex" />
+    {%- elseif noindex_follow %}
+    <meta name="robots" content="noindex, follow" />
+    {%- else %}
+    <meta name="robots" content="index, follow" />
+    {%- endif %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="{{ title }}" />
+    <!-- Canonical link, improves SEO -->
+    <link href="{{ canonical }}" rel="canonical" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:locale" content="{{ lang }}" />
+    <meta property="og:site_name" content="{{ title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ canonical }}" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta
+      property="og:image"
+      content="https://www.digitalidstrategy.cdt.ca.gov/images/lightrail-share.png" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{ canonical }}" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
+    <meta
+      name="twitter:image"
+      content="https://www.digitalidstrategy.cdt.ca.gov/images/lightrail-share.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <!-- FONT-->
+    <!-- Preconnects and preloads -->
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/publicsans/v18/ijwRs572Xtc6ZYQws9YVwnNGfJ7QwOk1.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <!-- BEGIN Google Analytics -->
+    <script>
+      // Your GA4 Measurement ID that this website should use for website analytics
+      var yourGA4MeasurementId = "G-CLMC17ZTJT"; // Change it to the one for your project. Support code to make this work, just leave this as is
+      var loadGTM = function () {
+        var stateGTMAccount = "GTM-NJ6Q4MV"; // GTM-NJ6Q4MV - all ca.gov
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer'
+              ? '&l=' + l
+              : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+          (function () {
+            dataLayer.push(arguments)
+          })('config', yourGA4MeasurementId, {cookie_flags: 'secure;samesite=lax;domain='});
+        })(window, document, 'script', 'dataLayer', stateGTMAccount);
+      };
+      "requestIdleCallback" in window
+        ? requestIdleCallback(loadGTM)
+        : setTimeout(loadGTM, 200);
+    </script>
+    <!-- END Google Analytics -->
+    <!-- Statewide Alerts Server -->
+    <script
+      defer
+      src="https://alert.cdt.ca.gov"
+      crossorigin="anonymous"></script>
+
+    <!-- Stylesheet -->
+    {% set purgeCssHtml %} {% include 'header.html' %} {{ content | safe }} {%
+    include 'footer.html' %} {% endset -%} {{ cssBundle | purgeCSS(purgeCssHtml)
+    | cssmin | wrapTag('style') | safe }}
+    <!-- Custom Script -->
+    {% set script -%} {%- include "../../src/js/cagov-header-full.html.js"-%}
+    {%- endset %} {{ script | jsmin | wrapTag('script') | safe }}
+  </head>
+  <body>
+    {{ purgeCssHtml | safe }}
+  </body>
+</html>

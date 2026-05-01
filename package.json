@@ -3,15 +3,24 @@
   "version": "1.0.0",
   "description": "Digital ID Strategy",
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve"
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^9.39.2",
+    "eslint-plugin-jsdoc": "^50.6.8",
+    "lightningcss": "^1.32.0",
+    "prettier": "^3.5.3",
+    "stylelint": "^17.4.0",
+    "stylelint-config-standard": "^40.0.0"
+  },
+  "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "nunjucks": "^3.2.4",
-    "prettier": "^3.6.2"
+    "@cagovweb/state-template": "^6.5.5",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "terser": "^5.39.0"
   }
 }

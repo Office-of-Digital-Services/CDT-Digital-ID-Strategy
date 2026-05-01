@@ -1,0 +1,8 @@
+---
+layout: null
+permalink: "js/flatten_css.js"
+eleventyExcludeFromCollections: true
+---
+
+{%- set code -%} {%- include "../../src/js/flatten_css.js" -%} {%- endset -%}
+{{- code | jsmin | safe -}}
