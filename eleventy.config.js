@@ -23,8 +23,6 @@ module.exports = async function (
 
   eleventyConfig.addWatchTarget("./src");
 
-
-
   // PurgeCSS filter to extract only used CSS
   eleventyConfig.addFilter(
     "purgeCSS",
@@ -92,15 +90,6 @@ module.exports = async function (
     async (code, callback) => {
       const minified = await minify(code);
       callback(null, minified.code || "");
-    }
-  );
-
-  // canonical shortcode
-  // Usage <link href="{% canonical %}" rel="canonical" />
-  eleventyConfig.addShortcode(
-    "canonical",
-    /** @type {  (this: { ctx: { page: { url: string } } }) => string} */ function () {
-      return domain + this.ctx.page.url;
     }
   );
 
