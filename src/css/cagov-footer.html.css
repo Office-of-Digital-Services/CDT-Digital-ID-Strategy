@@ -1,9 +1,57 @@
+:root {
+  --font-size-base: 1rem;
+  --font-size-regular: calc(var(--font-size-base, 1rem) * 1.125);
+  --font-size-large: calc(var(--font-size-base, 1rem) * 1.4375);
+  --font-size-h1: calc(var(--font-size-base, 1rem) * 2.9375);
+  --font-size-h2: calc(var(--font-size-base, 1rem) * 2.3175);
+  --font-family-sans-serif:
+    "Public Sans", system-ui, -apple-system, "Segoe UI", "Roboto",
+    "Helvetica Neue", "Noto Sans", sans-serif;
+  --gray-900: #3b3a48;
+  --gray-700: #5e5e6a;
+  --gray-500: #72717c;
+  --gray-200: #d4d4d7;
+  --gray-150: #e2e2e3;
+  --gray-100: #ededef;
+  --gray-75: #f8f9fa;
+  --gray-50: #fafafa;
+  --black: #000;
+  --white: #fff;
+  --color-p1: #fdb81e;
+  --color-p1-lighter: #fed478;
+  --color-p1-soft: #f2c45a;
+  --color-p1-softer: #f5ce73;
+  --color-p2: #046b99;
+  --color-p2-darker: #035376;
+  --color-p2-darkest: #01395e;
+  --color-p2-light: #6db7d8;
+  --color-p2-pale: #eef8fb;
+  --color-p2-soft: #f5f9fa;
+  --color-p2-muted: #87b8ce;
+  --color-p3: #323a45;
+  --color-p3-darker: #232930;
+  --outline-default-color: #0b8ee5;
+  --outline-dark-mode-color: #85cbf9;
+  --ratio: 0.1vw;
+  --shadow-strong: 0 2px 4px rgba(0 0 0 / 50%);
+  --shadow-card: 0 3px 5px 0 rgb(0 0 0 / 10%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* cagov footer styles */
 footer.cagov-footer {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family:
+  font-family: var(
+    --font-family-sans-serif,
     "Public Sans",
     system-ui,
     -apple-system,
@@ -11,15 +59,16 @@ footer.cagov-footer {
     Roboto,
     "Helvetica Neue",
     "Noto Sans",
-    sans-serif;
-  color: #3b3a48;
-  background-color: #fafafa;
-  border-top: 1px solid #d4d4d7;
+    sans-serif
+  );
+  color: var(--gray-900, #3b3a48);
+  background-color: var(--gray-50, #fafafa);
+  border-top: 1px solid var(--gray-200, #d4d4d7);
 
   /* global */
 
   :focus {
-    outline: 2px solid #0b8ee5;
+    outline: 2px solid var(--outline-default-color, #0b8ee5);
   }
 
   .bold {
@@ -27,25 +76,12 @@ footer.cagov-footer {
   }
 
   & a {
-    color: #046b99;
+    color: var(--color-p2, #046b99);
 
     &:hover,
     &:focus {
-      color: #035376;
+      color: var(--color-p2-darker, #035376);
     }
-  }
-
-  .cagov-sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    /* stylelint-disable-next-line property-no-deprecated */
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
   }
 
   *,
@@ -56,7 +92,7 @@ footer.cagov-footer {
     padding: 0;
   }
 
-  > div.cagov-footer__1-container {
+  > div {
     width: 100%;
     padding-right: 12px;
     padding-left: 12px;
@@ -79,7 +115,7 @@ footer.cagov-footer {
       max-width: 1176px;
     }
 
-    > div.cagov-footer__2-footer-links {
+    > div {
       display: flex;
       flex-direction: column;
       align-items: start;
@@ -90,10 +126,23 @@ footer.cagov-footer {
         align-items: center;
       }
 
-      > a.cagov-footer__3-footer-logo {
+      /* stylelint-disable-next-line no-descending-specificity */
+      > a {
         display: inline-block;
         height: 28px;
         margin-right: 1.5rem;
+
+        > span {
+          position: absolute !important;
+          width: 1px !important;
+          height: 1px !important;
+          padding: 0 !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          white-space: nowrap !important;
+          border: 0 !important;
+        }
 
         > svg {
           height: 100%;
@@ -102,7 +151,7 @@ footer.cagov-footer {
         }
       }
 
-      > ul.cagov-footer__4-legal-links {
+      > ul {
         list-style: none;
         font-size: 1.1rem;
         line-height: 1.5;
@@ -120,19 +169,20 @@ footer.cagov-footer {
             margin-right: 0;
           }
 
+          /* stylelint-disable-next-line no-descending-specificity */
           > a {
             text-decoration: none;
-            color: #3b3a48;
+            color: var(--gray-900, #3b3a48);
 
             &:hover,
             &:focus {
-              color: #000;
+              color: var(--black, #000);
             }
           }
         }
       }
 
-      > div.cagov-footer__5-copyright {
+      > div {
         margin-top: 1rem;
         font-size: 1rem;
         line-height: 1.5;
