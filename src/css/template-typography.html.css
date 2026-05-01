@@ -213,14 +213,12 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  /* stylelint-disable-next-line declaration-block-no-shorthand-property-overrides */
   font: inherit;
   vertical-align: baseline;
 }
 
 html {
   -webkit-font-smoothing: antialiased;
-  /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   hanging-punctuation: first allow-end last;
@@ -277,6 +275,15 @@ p {
     font-size: calc(var(--font-size-base, 1rem) + var(--ratio));
     margin-bottom: calc(0.65rem + var(--ratio));
   }
+}
+
+.bold {
+  font-weight: var(--font-weight-7, 700) !important;
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-7);
 }
 
 .btn {
