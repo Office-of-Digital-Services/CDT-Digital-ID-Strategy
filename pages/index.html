@@ -3,6 +3,7 @@ title: California State Digital ID Strategy
 description: CDT leads all aspects of the California Digital ID Framework — a system of data and services allowing for digital identity and program eligibility verification.
 canonical: https://www.digitalidstrategy.cdt.ca.gov/
 alternatelink: /es/index-es.html
+customhead: <link rel="preload" as="image" href="/images/lightrail.webp" fetchpriority="high">
 lang: en
 ---
 
@@ -17,8 +18,10 @@ lang: en
       <div>
         <!-- data-image options: "fade-left" -->
         <img
-          src="/images/lightrail.png"
+          src="/images/lightrail.webp"
+          fetchpriority="high"
           alt="Illustration of a hand holding ID badge near a light rail train"
+          style="aspect-ratio: 620/328"
           data-image="fade-left" />
       </div>
 
@@ -166,13 +169,7 @@ lang: en
         providers, and individuals across the state), and incorporates
         technology that is produced or managed by the CDT.
       </p>
-
-      <img
-        src="/images/digital-id-framework-v2.svg"
-        class="pb-5"
-        alt="The Digital ID framework diagram."
-        style="width: 95%" />
-
+      {% include "src/images/digital-id-framework-v2.svg" %}
       <p>
         As is shown in this diagram, the California Identity Gateway is a
         central intermediary for interactions between Californians (J. Doe),
@@ -202,18 +199,21 @@ lang: en
           The Identity Gateway forwards this information in a minimized form to
           the requesting agency.
         </li>
-        <li>Following confirmation of eligibility,</li>
-        <ol type="a">
-          <li>
-            The agency can then provide the requested benefit to J. Doe with
-            confidence that J.Doe meets the eligibility criteria.
-          </li>
-          <li>
-            If necessary, the agency can also issue a digital credential to
-            J.Doe’s mobile wallet, allowing J. Doe to present proof of verified
-            enrollment to access services and benefits in the real world.
-          </li>
-        </ol>
+        <li>
+          Following confirmation of eligibility,
+          <ol type="a">
+            <li>
+              The agency can then provide the requested benefit to J. Doe with
+              confidence that J.Doe meets the eligibility criteria.
+            </li>
+            <li>
+              If necessary, the agency can also issue a digital credential to
+              J.Doe’s mobile wallet, allowing J. Doe to present proof of
+              verified enrollment to access services and benefits in the real
+              world.
+            </li>
+          </ol>
+        </li>
       </ol>
     </div>
   </main>
