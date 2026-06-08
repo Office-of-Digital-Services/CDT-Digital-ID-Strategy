@@ -1,0 +1,134 @@
+<header>
+  <div id="template-skip-to-content">
+    <a href="#main-content">Skip to Main Content</a>
+  </div>
+  <div class="template-header-full">
+    <!-- START > div:first-child (Utility Bar) -->
+    <div>
+      <!-- START > div:first-child > div -->
+      <div>
+        <!-- START > div:first-of-type (CA.gov Logo & Official) -->
+        <div>
+          <a href="https://www.ca.gov">
+            <span class="template-sr-only" lang="en">CA.gov website</span>
+            {% include "src/images/ca-gov-logo.svg" %}
+          </a>
+
+          <!-- START > div:first-of-type > div -->
+          <div>
+            {% if lang == "es" %}
+            <span>Sitio web oficial del</span>
+            Estado de California {% else %}
+            <span>Official website of the</span>
+            State of California {% endif %}
+          </div>
+          <!-- END > div:first-of-type > div -->
+        </div>
+        <!-- END > div:first-of-type (CA.gov Logo & Official) -->
+
+        <!-- START > div:nth-of-type(2) (Links) -->
+        <div>
+          {% if lang == "es" -%}
+          <a href="{{ alternatelink }}" hreflang="en" lang="en">English</a>
+          {%- else -%}
+          <a href="{{ alternatelink }}" hreflang="es" lang="es">Español</a>
+          {%- endif %}
+        </div>
+        <!-- END > div:nth-of-type(2) (Links) -->
+      </div>
+      <!-- END > div:first-child > div -->
+    </div>
+    <!-- END > div:first-child (Utility Bar) -->
+
+    <!-- START > div:last-child (Bottom Bar / Branding) -->
+    <div>
+      <!-- START > div:last-child > div -->
+      <div>
+        <!-- START > div:first-of-type (Site Logo) -->
+        <div>
+          <a
+            href="/"
+            aria-label="Go to the California State Digital ID Framework homepage">
+            <!-- START > div:first-of-type > a > div -->
+            <div>
+               {% include "src/images/fingerprint.svg" %}
+
+              <!-- START > div:first-of-type > a > div > div -->
+              <div>
+                <!-- START > div:first-of-type > a > div > div > span:first-of-type -->
+                {% if lang == "es" %}
+                <span>California</span>
+                <span>Marco de Identidad Digital</span>
+                {% else %}
+                <span>State of California</span>
+                <span>Digital ID Framework</span>
+                {% endif %}
+                <!-- END > div:first-of-type > a > div > div > span:last-of-type -->
+              </div>
+              <!-- END > div:first-of-type > a > div > div -->
+            </div>
+            <!-- END > div:first-of-type > a > div -->
+          </a>
+        </div>
+        <!-- END > div:first-of-type (Site Logo) -->
+
+        <!-- START > details:last-of-type (Main Menu Button) -->
+        <details name="template-header-full__buttongroup">
+          {% if lang == "es" %}
+          <summary lang="es">
+            <span class="template-sr-only">Menú principal</span
+            ><span aria-hidden="true"></span>
+          </summary>
+          {% else %}
+          <summary lang="en">
+            <span class="template-sr-only">Main menu</span
+            ><span aria-hidden="true"></span>
+          </summary>
+          {% endif %}
+        </details>
+        <!-- END > details:last-of-type (Main Menu Button) -->
+
+        <!-- START > div:last-of-type (Main Menu Content) -->
+        <div>
+          <nav aria-label="Main navigation">
+            <ul>
+              {% if lang == "es" %}
+              <li>
+                <a href="/es/primary-elements-es.html">Elementos principales</a>
+              </li>
+              <li>
+                <a href="/es/accomplishments-es.html">Logros</a>
+              </li>
+              <li>
+                <a href="/es/projects-es.html"
+                  >Proyectos y esfuerzos sinérgicos</a
+                >
+              </li>
+              <li>
+                <a href="/es/roadmap-es.html">Hoja de ruta</a>
+              </li>
+              {% else %}
+              <li>
+                <a href="/primary-elements.html">Primary elements</a>
+              </li>
+              <li>
+                <a href="/accomplishments.html">Accomplishments</a>
+              </li>
+              <li>
+                <a href="/projects.html">Projects and synergy efforts</a>
+              </li>
+              <li>
+                <a href="/roadmap.html">Roadmap</a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+        <!-- END > div:last-of-type (Main Menu Content) -->
+      </div>
+      <!-- END > div:last-child > div -->
+    </div>
+    <!-- END > div:last-child (Bottom Bar / Branding) -->
+  </div>
+  <!-- END div.template-header-full -->
+</header>

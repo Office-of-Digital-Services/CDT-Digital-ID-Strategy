@@ -1,0 +1,102 @@
+<!-- Global Footer -->
+
+<aside>
+  <!-- 
+    Site Footer Component 
+    data-site-footer-bg options: "gray-100"
+  -->
+  <div class="template-site-footer" data-site-footer-bg="gray-100">
+    <!-- Footer Content Container -->
+    <div>
+      <!-- Footer Column -->
+      <div>
+        <h2>
+          {% if lang == "es" %} Sobre Marco de Identidad Digital {% else %}
+          About {% endif %}
+        </h2>
+        <a href="https://cdt.ca.gov/digitalID/">
+          {% if lang == "es" %} Proyecto de Identidad Digital {% else %} Digital
+          ID Project {% endif %}
+        </a>
+        <a href="https://cdt.ca.gov/">
+          {% if lang == "es" %} Departamento de Tecnología de California {% else
+          %} California Department of Technology {% endif %}
+        </a>
+      </div>
+      <!-- Footer Column -->
+      <div>
+        <h2>
+          {% if lang == "es" %} Planes estratégicos estatales {% else %} State
+          Strategic plans {% endif %}
+        </h2>
+        <a href="https://www.digitalstrategy.cdt.ca.gov/">
+          {% if lang == "es" %} Estrategia digital {% else %} Digital Strategy
+          {% endif %}
+        </a>
+        <a href="https://www.envision2026.cdt.ca.gov/">
+          {% if lang == "es" %} Envision 2026 {% else %} Envision 2026 {% endif
+          %}
+        </a>
+        <a
+          href="https://cdt.ca.gov/wp-content/uploads/2021/10/Cybersecurity_Strategy_Plan_FINAL.pdf">
+          {% if lang == "es" %} Hoja de ruta para la seguridad de la información
+          - Cal-Secure {% else %} Information Security Roadmap — Cal-Secure {%
+          endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<footer class="cagov-footer">
+  <div>
+    <div>
+      <a href="https://www.ca.gov">
+        <span>CA.gov</span>
+        {% include "src/images/ca-gov-logo.svg" %}
+      </a>
+      <ul>
+        <li>
+          <a href="https://cdt.ca.gov/conditions-of-use/"
+            >{% if lang == "es" %}Condiciones de Uso{% else %}Conditions of
+            use{% endif %}</a
+          >
+        </li>
+        <li>
+          <a href="https://cdt.ca.gov/privacy-policy/"
+            >{% if lang == "es" %}Política de privacidad{% else %}Privacy
+            policy{% endif %}</a
+          >
+        </li>
+        <li>
+          <a href="https://cdt.ca.gov/accessibility/"
+            >{% if lang == "es" %}Accesibilidad{% else %}Accessibility{% endif
+            %}</a
+          >
+        </li>
+        <li>
+          <a href="/website-accessibility-certification.html"
+            >{% if lang == "es" %}Certificación de accesibilidad del sitio web{%
+            else %}Website Accessibility Certification{% endif %}</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% if lang == 'es' %}/es/sitemap-es.html{% else %}/sitemap.html{% endif %}">
+            {% if lang == "es" %}Mapa del sitio{% else %}Sitemap{% endif %}
+          </a>
+        </li>
+      </ul>
+      <div>
+        ©
+        <span id="thisyear">
+          <script>
+            document.getElementById('thisyear').appendChild(document.createTextNode(new Date().getFullYear()))
+          </script></span
+        >
+        {% if lang == "es" %} Estado de California {% else %} State of
+        California {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>
