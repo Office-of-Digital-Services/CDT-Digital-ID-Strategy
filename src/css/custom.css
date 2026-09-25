@@ -2,6 +2,10 @@
   background-color: #eef8fb;
 }
 
+.bg-default {
+  background-color: #ededef;
+}
+
 .h-100 {
   height: 100%;
 }
