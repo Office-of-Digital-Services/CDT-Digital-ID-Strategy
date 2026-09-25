@@ -13,3 +13,8 @@
 .border-transparent {
   border-color: transparent !important;
 }
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
