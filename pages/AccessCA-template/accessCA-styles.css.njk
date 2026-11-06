@@ -1,0 +1,10 @@
+---
+permalink: /accessCA/styles.css
+eleventyExcludeFromCollections: true
+layout: false
+---
+
+{%- set accessHtml -%}
+{%- include "pages/AccessCA-template/accessCA.html" -%}
+{%- endset -%}
+{{ accessCAcssBundle | purgeCSS(accessHtml) | cssmin | safe }}
