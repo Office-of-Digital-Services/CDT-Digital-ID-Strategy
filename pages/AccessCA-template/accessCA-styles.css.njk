@@ -5,6 +5,6 @@ layout: false
 ---
 
 {%- set accessHtml -%}
-{%- include "pages/accessCA.html" -%}
+{%- include "pages/AccessCA-template/accessCA.html" -%}
 {%- endset -%}
 {{ accessCAcssBundle | purgeCSS(accessHtml) | cssmin | safe }}
