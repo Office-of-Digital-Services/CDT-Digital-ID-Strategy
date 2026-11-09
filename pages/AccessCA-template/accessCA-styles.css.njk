@@ -5,6 +5,8 @@ layout: false
 ---
 
 {%- set accessHtml -%}
-{%- include "pages/AccessCA-template/accessCA.html" -%}
+{%- for accessPage in collections.accessCAPages -%}
+  {%- include accessPage.inputPath | replace("./", "") -%}
+{%- endfor -%}
 {%- endset -%}
 {{ accessCAcssBundle | purgeCSS(accessHtml) | cssmin | safe }}
