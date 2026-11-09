@@ -23,6 +23,13 @@ module.exports = async function (
 
   eleventyConfig.addWatchTarget("./src");
 
+  eleventyConfig.addCollection(
+    "accessCAPages",
+    (
+      /** @type {import("./node_modules/@11ty/eleventy/src/TemplateCollection.js").default} */ collectionApi
+    ) => collectionApi.getFilteredByGlob("./pages/AccessCA-template/**/*.html")
+  );
+
   // PurgeCSS filter to extract only used CSS
   eleventyConfig.addFilter(
     "purgeCSS",
