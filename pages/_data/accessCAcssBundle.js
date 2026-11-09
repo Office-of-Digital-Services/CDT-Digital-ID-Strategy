@@ -17,7 +17,9 @@ module.exports = function () {
   // Read the node_modules CSS file
   let externalCss = "";
   if (fs.existsSync(nodeModuleCss)) {
-    externalCss = fs.readFileSync(nodeModuleCss, "utf8");
+    externalCss = fs
+      .readFileSync(nodeModuleCss, "utf8")
+      .replace(/\s+!default(?=\s*;)/g, "");
   }
 
   return [externalCss, ...files].join("\n");
