@@ -187,3 +187,11 @@
 .btn-outline-primary:active {
   outline: 2px solid var(--outline-default-color, #0b8ee5) !important;
 }
+
+.float-root {
+  display: flow-root;
+}
+
+.font-size-18 {
+  font-size: calc(var(--font-size-regular) + var(--ratio)) !important;
+}
